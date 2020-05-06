@@ -8,19 +8,19 @@
   <meta name="renderer" content="webkit">
 
   
-  <title>Hexo-常用命令 | Amour&amp;R&#39;blog</title>
+  <title>接口和抽象类的区别是什么？ | Amour&amp;R&#39;blog</title>
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="Amour&R'blog">
-  <meta name="description" content="（1）$ hexo g或$ hexo generate 该命令执行后在hexo站点根目录下生成public文件夹 （2）$ hexo clean 把（1）中的public文件夹删除 （3）$ hexo s或$ hexo server 启动服务预览 （4）$ hexo d或$ hexo deploy 部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 GitHub。 （5）$">
+  <meta name="description" content="接口和抽象类的区别是什么？  接口的方法默认是 public，所有方法在接口中不能有实现(Java 8 开始接口方法可以有默认实现），而抽象类可以有非抽象的方法。 接口中除了 static、final 变量，不能有其他变量，而抽象类中则不一定。 一个类可以实现多个接口，但只能实现一个抽象类。接口自己本身可以通过 extends 关键字扩展多个接口。 接口方法默认修饰符是 public，抽象方法可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo-常用命令">
-<meta property="og:url" content="http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="接口和抽象类的区别是什么？">
+<meta property="og:url" content="http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/index.html">
 <meta property="og:site_name" content="Amour&amp;R&#39;blog">
-<meta property="og:description" content="（1）$ hexo g或$ hexo generate 该命令执行后在hexo站点根目录下生成public文件夹 （2）$ hexo clean 把（1）中的public文件夹删除 （3）$ hexo s或$ hexo server 启动服务预览 （4）$ hexo d或$ hexo deploy 部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 GitHub。 （5）$">
+<meta property="og:description" content="接口和抽象类的区别是什么？  接口的方法默认是 public，所有方法在接口中不能有实现(Java 8 开始接口方法可以有默认实现），而抽象类可以有非抽象的方法。 接口中除了 static、final 变量，不能有其他变量，而抽象类中则不一定。 一个类可以实现多个接口，但只能实现一个抽象类。接口自己本身可以通过 extends 关键字扩展多个接口。 接口方法默认修饰符是 public，抽象方法可以">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-06T10:15:10.000Z">
-<meta property="article:modified_time" content="2020-05-06T10:21:23.719Z">
+<meta property="article:published_time" content="2020-05-06T10:41:49.000Z">
+<meta property="article:modified_time" content="2020-05-06T10:44:39.272Z">
 <meta property="article:author" content="Amour&amp;R">
 <meta name="twitter:card" content="summary">
 
@@ -31,7 +31,7 @@
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Amour&amp;R&#39;blog">
-  <meta name="msapplication-starturl" content="http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+  <meta name="msapplication-starturl" content="http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/">
   <meta name="msapplication-navbutton-color" content="#9C27B0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Amour&amp;R&#39;blog">
@@ -39,12 +39,12 @@
   <link rel="apple-touch-icon" href="/images/favicon.png">
 
   
-    <meta property="article:published_time" content="Wed May 06 2020 18:15:10 GMT+0800">
-    <meta property="article:modified_time" content="Wed May 06 2020 18:21:23 GMT+0800">
+    <meta property="article:published_time" content="Wed May 06 2020 18:41:49 GMT+0800">
+    <meta property="article:modified_time" content="Wed May 06 2020 18:44:39 GMT+0800">
   
 
   
-    <link rel="canonical" href="http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+    <link rel="canonical" href="http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/">
   
 
   
@@ -171,10 +171,10 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-15.png" style="max-height: 240px;">
+      <img src="/images/random/material-12.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
-          <div class="mdui-card-primary-title">Hexo-常用命令</div>
+          <div class="mdui-card-primary-title">接口和抽象类的区别是什么？</div>
           <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2020-05-06 / <i class="iconfont">&#xe601;</i> Amour&amp;R</div>
         </div>
       </div>
@@ -184,44 +184,56 @@
           <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
-              <a href="http://service.weibo.com/share/share.php?appkey=&title=Hexo-常用命令&url=http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&pic=http://yoursite.com/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到微博</a>
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=接口和抽象类的区别是什么？&url=http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/&pic=http://yoursite.com/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到微博</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://twitter.com/intent/tweet?text=Hexo-常用命令&url=http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&via=Amour&amp;R" target="_blank" class="mdui-ripple">分享到Twitter</a>
+              <a href="https://twitter.com/intent/tweet?text=接口和抽象类的区别是什么？&url=http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/&via=Amour&amp;R" target="_blank" class="mdui-ripple">分享到Twitter</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank" class="mdui-ripple">分享到Facebook</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/" target="_blank" class="mdui-ripple">分享到Facebook</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://plus.google.com/share?url=http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank" class="mdui-ripple">分享到Google+</a>
+              <a href="https://plus.google.com/share?url=http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/" target="_blank" class="mdui-ripple">分享到Google+</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=Hexo-常用命令" target="_blank" class="mdui-ripple">分享到LinkedIn</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/&title=接口和抽象类的区别是什么？" target="_blank" class="mdui-ripple">分享到LinkedIn</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Amour&amp;R&#39;blog&title=Hexo-常用命令&summary=&pics=http://yoursite.com/images/favicon.png&url=http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank" class="mdui-ripple">分享到QQ</a>
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Amour&amp;R&#39;blog&title=接口和抽象类的区别是什么？&summary=&pics=http://yoursite.com/images/favicon.png&url=http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/" target="_blank" class="mdui-ripple">分享到QQ</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&text=Hexo-常用命令" target="_blank" class="mdui-ripple">分享到Telegram</a>
+              <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/&text=接口和抽象类的区别是什么？" target="_blank" class="mdui-ripple">分享到Telegram</a>
             </li>
           </ul>
         
       </div>
     </header>
     <div class="mdui-card-content mdui-typo">
-      <p><strong>（1）<code>$ hexo g</code>或<code>$ hexo generate</code></strong><br> 该命令执行后在<code>hexo</code>站点根目录下生成<code>public</code>文件夹</p>
-<p><strong>（2）<code>$ hexo clean</code></strong><br> 把（1）中的<code>public</code>文件夹删除</p>
-<p><strong>（3）<code>$ hexo s</code>或<code>$ hexo server</code></strong><br> 启动服务预览</p>
-<p><strong>（4）<code>$ hexo d</code>或<code>$ hexo deploy</code></strong><br> 部署站点，在本地生成<code>.deploy_git</code>文件夹，并将编译后的文件上传至 GitHub。</p>
-<p><strong>（5）<code>$ hexo new [layout]</code></strong><br> 例如：<code>$ hexo new photo “my-first-blog”</code><br> 上述指令执行时，Hexo 会尝试在 scaffolds 中寻找photo.md布局，若找到，则根据该布局新建文章；若未找到或指令中未指定该参数，则使用post.md新建文章。新建文章的名称在_config.yml中配置。</p>
-<p><strong>（6）删除文章</strong><br> 只需在本地把<code>source/_posts</code>文件夹下的文章源文件删除后，执行以下命令重新部署即可。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment">// 一定要先 clean，防止灵异事件发生</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<p>作者：四喜汤圆<br>链接：<a href="https://www.jianshu.com/p/7ba00af8da13" target="_blank" rel="noopener">https://www.jianshu.com/p/7ba00af8da13</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+      <p>接口和抽象类的区别是什么？</p>
+<ol>
+<li>接口的方法默认是 public，所有方法在接口中不能有实现(Java 8 开始接口方法可以有默认实现），而抽象类可以有非抽象的方法。</li>
+<li>接口中除了 static、final 变量，不能有其他变量，而抽象类中则不一定。</li>
+<li>一个类可以实现多个接口，但只能实现一个抽象类。接口自己本身可以通过 extends 关键字扩展多个接口。</li>
+<li>接口方法默认修饰符是 public，抽象方法可以有 public、protected 和 default 这些修饰符（抽象方法就是为了被重写所以不能使用 private 关键字修饰！）。</li>
+<li>从设计层面来说，抽象是对类的抽象，是一种模板设计，而接口是对行为的抽象，是一种行为的规范。</li>
+</ol>
+<blockquote>
+<p>备注：</p>
+<ol>
+<li>在 JDK8 中，接口也可以定义静态方法，可以直接用接口名调用。实现类和实现是不可以调用的。如果同时实现两个接口，接口中定义了一样的默认方法，则必须重写，不然会报错。(详见 issue:<a href="https://github.com/Snailclimb/JavaGuide/issues/146。" target="_blank" rel="noopener">https://github.com/Snailclimb/JavaGuide/issues/146。</a></li>
+<li>jdk9 的接口被允许定义私有方法 。</li>
+</ol>
+</blockquote>
+<p>总结一下 jdk7~jdk9 Java 中接口概念的变化（<a href="https://www.geeksforgeeks.org/private-methods-java-9-interfaces/" target="_blank" rel="noopener">相关阅读</a>）：</p>
+<ol>
+<li>在 jdk 7 或更早版本中，接口里面只能有常量变量和抽象方法。这些接口方法必须由选择实现接口的类实现。</li>
+<li>jdk8 的时候接口可以有默认方法和静态方法功能。</li>
+<li>Jdk 9 在接口中引入了私有方法和私有静态方法。</li>
+</ol>
 
       <blockquote class="mdui-m-t-5">
         
-        <strong>本文链接：</strong><a href="http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a>
+        <strong>本文链接：</strong><a href="http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/">http://yoursite.com/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/</a>
       </blockquote>
       
     </div>
@@ -240,14 +252,9 @@
 
   <nav id="paginator">
     
-      <a rel="prev" class="extend prev" href="/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/">
-        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一篇
-      </a>
-    
     <div class="spacer"></div>
     
-      <a rel="next" class="extend next" href="/2020/05/06/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99%E7%9A%84%E5%8C%BA%E5%88%AB/">
+      <a rel="next" class="extend next" href="/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
         下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
       </a>
