@@ -12,19 +12,17 @@
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="Amour&R'blog">
-  <meta name="description" content="（1）$ hexo g或$ hexo generate 该命令执行后在hexo站点根目录下生成public文件夹  （2）$ hexo clean 把（1）中的public文件夹删除 （3）$ hexo s或$ hexo server 启动服务预览 （4）$ hexo d或$ hexo deploy 部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 GitHub。 （5）$">
+  <meta name="description" content="（1）$ hexo g或$ hexo generate 该命令执行后在hexo站点根目录下生成public文件夹 （2）$ hexo clean 把（1）中的public文件夹删除 （3）$ hexo s或$ hexo server 启动服务预览 （4）$ hexo d或$ hexo deploy 部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 GitHub。 （5）$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-常用命令">
 <meta property="og:url" content="http://yoursite.com/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Amour&amp;R&#39;blog">
-<meta property="og:description" content="（1）$ hexo g或$ hexo generate 该命令执行后在hexo站点根目录下生成public文件夹  （2）$ hexo clean 把（1）中的public文件夹删除 （3）$ hexo s或$ hexo server 启动服务预览 （4）$ hexo d或$ hexo deploy 部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 GitHub。 （5）$">
+<meta property="og:description" content="（1）$ hexo g或$ hexo generate 该命令执行后在hexo站点根目录下生成public文件夹 （2）$ hexo clean 把（1）中的public文件夹删除 （3）$ hexo s或$ hexo server 启动服务预览 （4）$ hexo d或$ hexo deploy 部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 GitHub。 （5）$">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1836565-4752d1829393f4ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/643/format/webp">
 <meta property="article:published_time" content="2020-05-06T10:15:10.000Z">
-<meta property="article:modified_time" content="2020-05-06T10:17:27.928Z">
+<meta property="article:modified_time" content="2020-05-06T10:21:23.719Z">
 <meta property="article:author" content="Amour&amp;R">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1836565-4752d1829393f4ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/643/format/webp">
 
   <meta name="format-detection" content="telephone=no,email=no">
   <meta name="theme-color" content="#9C27B0">
@@ -42,7 +40,7 @@
 
   
     <meta property="article:published_time" content="Wed May 06 2020 18:15:10 GMT+0800">
-    <meta property="article:modified_time" content="Wed May 06 2020 18:17:27 GMT+0800">
+    <meta property="article:modified_time" content="Wed May 06 2020 18:21:23 GMT+0800">
   
 
   
@@ -173,7 +171,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-3.png" style="max-height: 240px;">
+      <img src="/images/random/material-18.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">Hexo-常用命令</div>
@@ -212,15 +210,12 @@
     </header>
     <div class="mdui-card-content mdui-typo">
       <p><strong>（1）<code>$ hexo g</code>或<code>$ hexo generate</code></strong><br> 该命令执行后在<code>hexo</code>站点根目录下生成<code>public</code>文件夹</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/1836565-4752d1829393f4ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/643/format/webp" alt="img"></p>
 <p><strong>（2）<code>$ hexo clean</code></strong><br> 把（1）中的<code>public</code>文件夹删除</p>
 <p><strong>（3）<code>$ hexo s</code>或<code>$ hexo server</code></strong><br> 启动服务预览</p>
 <p><strong>（4）<code>$ hexo d</code>或<code>$ hexo deploy</code></strong><br> 部署站点，在本地生成<code>.deploy_git</code>文件夹，并将编译后的文件上传至 GitHub。</p>
 <p><strong>（5）<code>$ hexo new [layout]</code></strong><br> 例如：<code>$ hexo new photo “my-first-blog”</code><br> 上述指令执行时，Hexo 会尝试在 scaffolds 中寻找photo.md布局，若找到，则根据该布局新建文章；若未找到或指令中未指定该参数，则使用post.md新建文章。新建文章的名称在_config.yml中配置。</p>
 <p><strong>（6）删除文章</strong><br> 只需在本地把<code>source/_posts</code>文件夹下的文章源文件删除后，执行以下命令重新部署即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment">// 一定要先 clean，防止灵异事件发生</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-
 
 <p>作者：四喜汤圆<br>链接：<a href="https://www.jianshu.com/p/7ba00af8da13" target="_blank" rel="noopener">https://www.jianshu.com/p/7ba00af8da13</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
