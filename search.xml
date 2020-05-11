@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>First</title>
-    <url>/2020/05/03/First/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Hexo-常用命令</title>
     <url>/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p><strong>（1）<code>$ hexo g</code>或<code>$ hexo generate</code></strong><br> 该命令执行后在<code>hexo</code>站点根目录下生成<code>public</code>文件夹</p>
