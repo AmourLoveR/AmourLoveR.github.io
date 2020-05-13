@@ -524,7 +524,39 @@
 </li>
 </ul>
 <h4 id="系统调用与库函数的区别"><a href="#系统调用与库函数的区别" class="headerlink" title="系统调用与库函数的区别"></a>系统调用与库函数的区别</h4><p><img src="/2020/05/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20200513181703297.png" alt></p>
-
+<h4 id="系统调用背后的过程"><a href="#系统调用背后的过程" class="headerlink" title="系统调用背后的过程"></a>系统调用背后的过程</h4><p>传递系统调用参数—&gt;执行陷入指令（用户态）—&gt;执行系统调用相应服务程序（核心态）—&gt;返回应用程序</p>
+<p>注意：1、陷入指令是在用户态执行的，执行陷入指令之后立即引发一个内中断，从而CPU进入核心态。</p>
+<p>2、发出系统调用请求是在用户态，而对系统调用的相应处理在核心态下进行。</p>
+<p>3、陷入指令是指唯一一个只能在用户态执行，而不可在核心态执行的指令。</p>
+<p><img src="/2020/05/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20200513222640906.png" alt></p>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><h4 id="进程的定义"><a href="#进程的定义" class="headerlink" title="进程的定义"></a>进程的定义</h4><p>程序：就是一个指令序列。</p>
+<p>早期的计算机（只支持单道程序），CPU、I/O设备、内存都为一道程序服务。</p>
+<p>内存（程序段（低地址），数据段（高地址））：程序的代码放在程序段内，程序运行过程处理的数据放在数据段内。</p>
+<p>引入多道程序后：</p>
+<p>为了方便操作系统管理，完成各程序并发执行，引入了进程、进程实体的概念。</p>
+<p>PCB:系统为每个运行的程序配置一个数据结构，称为进程控制块（PCB），用来描述进程的各种信息（如程序代码存放位置）。操作系统通过PCB来管理进程，因此PCB中应该包含操作系统对其进行管理所需的各种信息。</p>
+<ul>
+<li>PCB、程序段、数据段三部分构成了进程实体（进程映像）。一般情况下，我们把进程实体就简称为进程，例如，所谓创建进程，实质上是创建进程实体中的PCB；而撤销进程，实质上是撤销进程实体中的PCB。注意：PCB是进程存在的唯一标准！</li>
+</ul>
+<p>从不同的角度，进程可以有不同的定义，比较传统典型的定义有：强调“动态性”</p>
+<p>1、进程是程序的一次执行过程。</p>
+<p>2、进程是一个程序及其数据在处理机上顺序执行时所发生的活动。</p>
+<p>3、进程时具有独立功能的程序在数据集合上运动的过程，它是系统进行资源分配和调度的一个独立单位。</p>
+<ul>
+<li>引入进程实体的概念后，可把进程定义为：进程时进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。</li>
+<li>注意：严格来说，进程实体和进程并不一样，进程实体是静态的，进程则是动态的。不过，除非题目专门考察二者的区别，否则可以认为进程实体就是进程。因此我们也可以说“进程由程序段、数据段、PCB三部分组成”。</li>
+</ul>
+<h4 id="进程的组成"><a href="#进程的组成" class="headerlink" title="进程的组成"></a>进程的组成</h4><p><img src="/2020/05/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20200513231930833.png" alt></p>
+<p><img src="/2020/05/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20200513232239443.png" alt></p>
+<h4 id="进程的组织"><a href="#进程的组织" class="headerlink" title="进程的组织"></a>进程的组织</h4><p>在一个系统中，通常有数十、数百乃至数千个PCB。为了能对他们加以有效的管理，应该用适当的方式把这些PCB组织起来。</p>
+<p>注：进程的组成讨论的是一个进程内部由哪些部分构成的问题，而进程的组织讨论的是多个进程之间的组织方式问题。</p>
+<p><img src="/2020/05/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20200513232815464.png" alt></p>
+<p><img src="/2020/05/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20200513233142008.png" alt></p>
+<p><img src="/2020/05/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20200513233415673.png" alt></p>
+<h4 id="进程的特征"><a href="#进程的特征" class="headerlink" title="进程的特征"></a>进程的特征</h4><p>进程和程序是两个截然不同的概念，相比于程序，进程拥有以下特征:</p>
+<p><img src="/2020/05/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20200513234022035.png" alt></p>
+<p><img src="/2020/05/09/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/image-20200513234214997.png" alt></p>
+<h3 id="进程的状态与转换"><a href="#进程的状态与转换" class="headerlink" title="进程的状态与转换"></a>进程的状态与转换</h3>
           
             <div class='article_footer'>
               
@@ -602,7 +634,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-13T18:23:57+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-13T23:42:56+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年5月13日</p>
@@ -770,7 +802,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机操作系统"><span class="toc-text">计算机操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能和目标"><span class="toc-text">功能和目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四个特征"><span class="toc-text">四个特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OS的发展与分类"><span class="toc-text">OS的发展与分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行机制与体系结构"><span class="toc-text">运行机制与体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运行机制"><span class="toc-text">运行机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#操作系统的内核"><span class="toc-text">操作系统的内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#操作系统的体系结构"><span class="toc-text">操作系统的体系结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中断和异常"><span class="toc-text">中断和异常</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#中断机制的诞生"><span class="toc-text">中断机制的诞生</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中断的概念和作用"><span class="toc-text">中断的概念和作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中断的分类"><span class="toc-text">中断的分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外中断的处理过程"><span class="toc-text">外中断的处理过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统调用"><span class="toc-text">系统调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是系统调用，有何作用"><span class="toc-text">什么是系统调用，有何作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#系统调用与库函数的区别"><span class="toc-text">系统调用与库函数的区别</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机操作系统"><span class="toc-text">计算机操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能和目标"><span class="toc-text">功能和目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四个特征"><span class="toc-text">四个特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OS的发展与分类"><span class="toc-text">OS的发展与分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行机制与体系结构"><span class="toc-text">运行机制与体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运行机制"><span class="toc-text">运行机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#操作系统的内核"><span class="toc-text">操作系统的内核</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#操作系统的体系结构"><span class="toc-text">操作系统的体系结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中断和异常"><span class="toc-text">中断和异常</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#中断机制的诞生"><span class="toc-text">中断机制的诞生</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中断的概念和作用"><span class="toc-text">中断的概念和作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中断的分类"><span class="toc-text">中断的分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#外中断的处理过程"><span class="toc-text">外中断的处理过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统调用"><span class="toc-text">系统调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是系统调用，有何作用"><span class="toc-text">什么是系统调用，有何作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#系统调用与库函数的区别"><span class="toc-text">系统调用与库函数的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#系统调用背后的过程"><span class="toc-text">系统调用背后的过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程"><span class="toc-text">进程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进程的定义"><span class="toc-text">进程的定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进程的组成"><span class="toc-text">进程的组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进程的组织"><span class="toc-text">进程的组织</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进程的特征"><span class="toc-text">进程的特征</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的状态与转换"><span class="toc-text">进程的状态与转换</span></a></li></ol></li></ol>
     </div>
   </section>
 
