@@ -1,115 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo-常用命令</title>
-    <url>/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p><strong>（1）<code>$ hexo g</code>或<code>$ hexo generate</code></strong><br> 该命令执行后在<code>hexo</code>站点根目录下生成<code>public</code>文件夹</p>
-<p><strong>（2）<code>$ hexo clean</code></strong><br> 把（1）中的<code>public</code>文件夹删除</p>
-<p><strong>（3）<code>$ hexo s</code>或<code>$ hexo server</code></strong><br> 启动服务预览</p>
-<p><strong>（4）<code>$ hexo d</code>或<code>$ hexo deploy</code></strong><br> 部署站点，在本地生成<code>.deploy_git</code>文件夹，并将编译后的文件上传至 GitHub。</p>
-<p><strong>（5）<code>$ hexo new [layout]</code></strong><br> 例如：<code>$ hexo new photo “my-first-blog”</code><br> 上述指令执行时，Hexo 会尝试在 scaffolds 中寻找photo.md布局，若找到，则根据该布局新建文章；若未找到或指令中未指定该参数，则使用post.md新建文章。新建文章的名称在_config.yml中配置。</p>
-<p><strong>（6）删除文章</strong><br> 只需在本地把<code>source/_posts</code>文件夹下的文章源文件删除后，执行以下命令重新部署即可。</p>
-<figure class="highlight cpp"><div class="table-container"><table><tr><td class="code"><pre><span class="line">$ hexo clean <span class="comment">// 一定要先 clean，防止灵异事件发生</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></div></figure>
-
-<p>作者：四喜汤圆<br>链接：<span class="exturl"><a class="exturl__link" href="https://www.jianshu.com/p/7ba00af8da13" target="_blank" rel="noopener">https://www.jianshu.com/p/7ba00af8da13</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>来源：简书</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>30种常见颜色代码</title>
-    <url>/2020/05/09/30%E7%A7%8D%E5%B8%B8%E8%A7%81%E9%A2%9C%E8%89%B2%E4%BB%A3%E7%A0%81/</url>
-    <content><![CDATA[<p>参考资料：<span class="exturl"><a class="exturl__link" href="http://baike.baidu.com/l/XFkkrKXW?bk_share=copy" target="_blank" rel="noopener">百度百科-颜色码</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-<a id="more"></a>
-
-<p>浅粉色  #FFB6C1</p>
-<p>粉红 FFC0CB</p>
-<p>猩红 #DC143C</p>
-<p>脸红的淡紫色  #FFF0F5</p>
-<p>苍白的紫罗兰红色#DB7093</p>
-<p>热情的粉红  #FF69B4</p>
-<p>深粉色  #FF1493</p>
-<p>适中的紫罗兰红色  #C71585</p>
-<p>兰花的紫色  #DA70D6</p>
-<p>蓟  #D8BFD8</p>
-<p>李子   #DDA0DD</p>
-<p>紫罗兰  #EE82EE</p>
-<p>洋红  #FF00FF</p>
-<p>灯笼海棠（紫红）#FF00FF</p>
-<p>深洋红色  #8B008B</p>
-<p>紫色  #800080</p>
-<p>适中的兰花紫  #BA55D3</p>
-<p>深<span class="exturl"><a class="exturl__link" href="https://www.baidu.com/s?wd=紫罗兰色&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">紫罗兰色</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>   #9400D3</p>
-<p>深兰花紫  #9932CC</p>
-<p>靛青   #4B0082</p>
-<p>深紫罗兰的蓝色  #8A2BE2</p>
-<p>适中的紫色   #9370DB</p>
-<p>暗蓝灰色  #7B68EE</p>
-<p>板岩暗蓝灰色  #6A5ACD</p>
-<p>深岩暗蓝灰色  #483D8B</p>
-<p>薰衣草花的淡紫色  #E6E6FA</p>
-<p>幽灵的白色    #F8F8FF</p>
-<p>纯蓝   #0000FF</p>
-<p>适中的蓝色   #0000CD</p>
-<p>午夜的蓝色   #191970</p>
-<p>深蓝色    #00008B</p>
-<p>海军蓝    #000080</p>
-<p>宝蓝    #4169E1</p>
-<p>矢车菊的蓝色   #6495ED</p>
-<p>淡钢蓝           #B0C4DE</p>
-<p>爱丽丝蓝         #F0F8FF</p>
-<p>钢蓝             #4682B4</p>
-<p>淡蓝色           #87CEFA</p>
-<p>天蓝色           #87CEEB</p>
-]]></content>
-      <tags>
-        <tag>颜色代码</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>接口和抽象类的区别是什么？</title>
-    <url>/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<p>接口和抽象类的区别是什么？</p>
-<ol>
-<li>接口的方法默认是 public，所有方法在接口中不能有实现(Java 8 开始接口方法可以有默认实现），而抽象类可以有非抽象的方法。</li>
-<li>接口中除了 static、final 变量，不能有其他变量，而抽象类中则不一定。</li>
-<li>一个类可以实现多个接口，但只能实现一个抽象类。接口自己本身可以通过 extends 关键字扩展多个接口。</li>
-<li>接口方法默认修饰符是 public，抽象方法可以有 public、protected 和 default 这些修饰符（抽象方法就是为了被重写所以不能使用 private 关键字修饰！）。</li>
-<li>从设计层面来说，抽象是对类的抽象，是一种模板设计，而接口是对行为的抽象，是一种行为的规范。</li>
-</ol>
-<blockquote>
-<p>备注：</p>
-<ol>
-<li>在 JDK8 中，接口也可以定义静态方法，可以直接用接口名调用。实现类和实现是不可以调用的。如果同时实现两个接口，接口中定义了一样的默认方法，则必须重写，不然会报错。(详见 issue:<span class="exturl"><a class="exturl__link" href="https://github.com/Snailclimb/JavaGuide/issues/146。" target="_blank" rel="noopener">https://github.com/Snailclimb/JavaGuide/issues/146。</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
-<li>jdk9 的接口被允许定义私有方法 。</li>
-</ol>
-</blockquote>
-<p>总结一下 jdk7~jdk9 Java 中接口概念的变化（<span class="exturl"><a class="exturl__link" href="https://www.geeksforgeeks.org/private-methods-java-9-interfaces/" target="_blank" rel="noopener">相关阅读</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>）：</p>
-<ol>
-<li>在 jdk 7 或更早版本中，接口里面只能有常量变量和抽象方法。这些接口方法必须由选择实现接口的类实现。</li>
-<li>jdk8 的时候接口可以有默认方法和静态方法功能。</li>
-<li>Jdk 9 在接口中引入了私有方法和私有静态方法。</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>IP基础知识</title>
-    <url>/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<p><span class="exturl"><a class="exturl__link" href="https://mp.weixin.qq.com/s/qydIO7NDfFTYs4-ZZlfgRg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/qydIO7NDfFTYs4-ZZlfgRg</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-<p>这是我在微信公众号上看到的一篇文章。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Java和C++的区别</title>
-    <url>/2020/05/06/Java%E5%92%8CC++%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<ul>
-<li>都是面向对象的语言，都支持封装、继承和多态</li>
-<li>Java 不提供指针来直接访问内存，程序内存更加安全</li>
-<li>Java 的类是单继承的，C++ 支持多重继承；虽然 Java 的类不可以多继承，但是接口可以多继承。</li>
-<li>Java 有自动内存管理机制，不需要程序员手动释放无用内存</li>
-<li><strong>在 C 语言中，字符串或字符数组最后都会有一个额外的字符‘\0’来表示结束。但是，Java 语言中没有结束符这一概念。</strong></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>操作系统第二章</title>
     <url>/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/</url>
     <content><![CDATA[<p>进程的基本知识以及一些调度算法</p>
@@ -749,6 +640,103 @@
       </tags>
   </entry>
   <entry>
+    <title>IP基础知识</title>
+    <url>/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<p><span class="exturl"><a class="exturl__link" href="https://mp.weixin.qq.com/s/qydIO7NDfFTYs4-ZZlfgRg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/qydIO7NDfFTYs4-ZZlfgRg</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>这是我在微信公众号上看到的一篇文章。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>30种常见颜色代码</title>
+    <url>/2020/05/09/30%E7%A7%8D%E5%B8%B8%E8%A7%81%E9%A2%9C%E8%89%B2%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<p>参考资料：<span class="exturl"><a class="exturl__link" href="http://baike.baidu.com/l/XFkkrKXW?bk_share=copy" target="_blank" rel="noopener">百度百科-颜色码</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<a id="more"></a>
+
+<p>浅粉色  #FFB6C1</p>
+<p>粉红 FFC0CB</p>
+<p>猩红 #DC143C</p>
+<p>脸红的淡紫色  #FFF0F5</p>
+<p>苍白的紫罗兰红色#DB7093</p>
+<p>热情的粉红  #FF69B4</p>
+<p>深粉色  #FF1493</p>
+<p>适中的紫罗兰红色  #C71585</p>
+<p>兰花的紫色  #DA70D6</p>
+<p>蓟  #D8BFD8</p>
+<p>李子   #DDA0DD</p>
+<p>紫罗兰  #EE82EE</p>
+<p>洋红  #FF00FF</p>
+<p>灯笼海棠（紫红）#FF00FF</p>
+<p>深洋红色  #8B008B</p>
+<p>紫色  #800080</p>
+<p>适中的兰花紫  #BA55D3</p>
+<p>深<span class="exturl"><a class="exturl__link" href="https://www.baidu.com/s?wd=紫罗兰色&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">紫罗兰色</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>   #9400D3</p>
+<p>深兰花紫  #9932CC</p>
+<p>靛青   #4B0082</p>
+<p>深紫罗兰的蓝色  #8A2BE2</p>
+<p>适中的紫色   #9370DB</p>
+<p>暗蓝灰色  #7B68EE</p>
+<p>板岩暗蓝灰色  #6A5ACD</p>
+<p>深岩暗蓝灰色  #483D8B</p>
+<p>薰衣草花的淡紫色  #E6E6FA</p>
+<p>幽灵的白色    #F8F8FF</p>
+<p>纯蓝   #0000FF</p>
+<p>适中的蓝色   #0000CD</p>
+<p>午夜的蓝色   #191970</p>
+<p>深蓝色    #00008B</p>
+<p>海军蓝    #000080</p>
+<p>宝蓝    #4169E1</p>
+<p>矢车菊的蓝色   #6495ED</p>
+<p>淡钢蓝           #B0C4DE</p>
+<p>爱丽丝蓝         #F0F8FF</p>
+<p>钢蓝             #4682B4</p>
+<p>淡蓝色           #87CEFA</p>
+<p>天蓝色           #87CEEB</p>
+]]></content>
+      <tags>
+        <tag>颜色代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>接口和抽象类的区别是什么？</title>
+    <url>/2020/05/06/%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<p>接口和抽象类的区别是什么？</p>
+<ol>
+<li>接口的方法默认是 public，所有方法在接口中不能有实现(Java 8 开始接口方法可以有默认实现），而抽象类可以有非抽象的方法。</li>
+<li>接口中除了 static、final 变量，不能有其他变量，而抽象类中则不一定。</li>
+<li>一个类可以实现多个接口，但只能实现一个抽象类。接口自己本身可以通过 extends 关键字扩展多个接口。</li>
+<li>接口方法默认修饰符是 public，抽象方法可以有 public、protected 和 default 这些修饰符（抽象方法就是为了被重写所以不能使用 private 关键字修饰！）。</li>
+<li>从设计层面来说，抽象是对类的抽象，是一种模板设计，而接口是对行为的抽象，是一种行为的规范。</li>
+</ol>
+<blockquote>
+<p>备注：</p>
+<ol>
+<li>在 JDK8 中，接口也可以定义静态方法，可以直接用接口名调用。实现类和实现是不可以调用的。如果同时实现两个接口，接口中定义了一样的默认方法，则必须重写，不然会报错。(详见 issue:<span class="exturl"><a class="exturl__link" href="https://github.com/Snailclimb/JavaGuide/issues/146。" target="_blank" rel="noopener">https://github.com/Snailclimb/JavaGuide/issues/146。</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li>jdk9 的接口被允许定义私有方法 。</li>
+</ol>
+</blockquote>
+<p>总结一下 jdk7~jdk9 Java 中接口概念的变化（<span class="exturl"><a class="exturl__link" href="https://www.geeksforgeeks.org/private-methods-java-9-interfaces/" target="_blank" rel="noopener">相关阅读</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>）：</p>
+<ol>
+<li>在 jdk 7 或更早版本中，接口里面只能有常量变量和抽象方法。这些接口方法必须由选择实现接口的类实现。</li>
+<li>jdk8 的时候接口可以有默认方法和静态方法功能。</li>
+<li>Jdk 9 在接口中引入了私有方法和私有静态方法。</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hexo-常用命令</title>
+    <url>/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p><strong>（1）<code>$ hexo g</code>或<code>$ hexo generate</code></strong><br> 该命令执行后在<code>hexo</code>站点根目录下生成<code>public</code>文件夹</p>
+<p><strong>（2）<code>$ hexo clean</code></strong><br> 把（1）中的<code>public</code>文件夹删除</p>
+<p><strong>（3）<code>$ hexo s</code>或<code>$ hexo server</code></strong><br> 启动服务预览</p>
+<p><strong>（4）<code>$ hexo d</code>或<code>$ hexo deploy</code></strong><br> 部署站点，在本地生成<code>.deploy_git</code>文件夹，并将编译后的文件上传至 GitHub。</p>
+<p><strong>（5）<code>$ hexo new [layout]</code></strong><br> 例如：<code>$ hexo new photo “my-first-blog”</code><br> 上述指令执行时，Hexo 会尝试在 scaffolds 中寻找photo.md布局，若找到，则根据该布局新建文章；若未找到或指令中未指定该参数，则使用post.md新建文章。新建文章的名称在_config.yml中配置。</p>
+<p><strong>（6）删除文章</strong><br> 只需在本地把<code>source/_posts</code>文件夹下的文章源文件删除后，执行以下命令重新部署即可。</p>
+<figure class="highlight cpp"><div class="table-container"><table><tr><td class="code"><pre><span class="line">$ hexo clean <span class="comment">// 一定要先 clean，防止灵异事件发生</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></div></figure>
+
+<p>作者：四喜汤圆<br>链接：<span class="exturl"><a class="exturl__link" href="https://www.jianshu.com/p/7ba00af8da13" target="_blank" rel="noopener">https://www.jianshu.com/p/7ba00af8da13</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>来源：简书</p>
+]]></content>
+  </entry>
+  <entry>
     <title>重载和重写的区别</title>
     <url>/2020/05/06/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p>重载就是同样的一个方法能够根据输入数据的不同，做出不同的处理</p>
@@ -792,6 +780,18 @@
 <td>运行期</td>
 </tr>
 </tbody></table></div>
+]]></content>
+  </entry>
+  <entry>
+    <title>Java和C++的区别</title>
+    <url>/2020/05/06/Java%E5%92%8CC++%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<ul>
+<li>都是面向对象的语言，都支持封装、继承和多态</li>
+<li>Java 不提供指针来直接访问内存，程序内存更加安全</li>
+<li>Java 的类是单继承的，C++ 支持多重继承；虽然 Java 的类不可以多继承，但是接口可以多继承。</li>
+<li>Java 有自动内存管理机制，不需要程序员手动释放无用内存</li>
+<li><strong>在 C 语言中，字符串或字符数组最后都会有一个额外的字符‘\0’来表示结束。但是，Java 语言中没有结束符这一概念。</strong></li>
+</ul>
 ]]></content>
   </entry>
 </search>
