@@ -72,8 +72,13 @@
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200522174915734.png">
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200522202550329.png">
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200522203438406.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526223048805.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526223439051.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526224047650.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526224818667.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526224926111.png">
 <meta property="article:published_time" content="2020-05-26T09:10:06.000Z">
-<meta property="article:modified_time" content="2020-05-26T13:52:11.397Z">
+<meta property="article:modified_time" content="2020-05-26T14:51:51.648Z">
 <meta property="article:author" content="Amour&amp;R">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -510,6 +515,43 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></he
           <a href="#Peterson算法" class="heading-link"><i class="fas fa-link"></i></a>Peterson算法</h3>
       <p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200522202550329.png" alt="image-20200522202550329"></p>
 <p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200522203438406.png" alt="image-20200522203438406"></p>
+
+        <h2 id="进程互斥的硬件实现方法">
+          <a href="#进程互斥的硬件实现方法" class="heading-link"><i class="fas fa-link"></i></a>进程互斥的硬件实现方法</h2>
+      <p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526223048805.png" alt="image-20200526223048805"></p>
+
+        <h3 id="中断屏蔽方法">
+          <a href="#中断屏蔽方法" class="heading-link"><i class="fas fa-link"></i></a>中断屏蔽方法</h3>
+      <p>利用“开/关中断指令”实现(与原语的实现思想相同，即在某进程开始访问临界区到结束访问为止都不允许被中断，也就不能发生进程切换，因此也不可能发生两个同时访问临界区的情况)</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526223439051.png" alt="image-20200526223439051"></p>
+<p>优点:简单、高效<br>缺点:不适用于多处理机;只适用于操作系统内核进程，不适用于用户进程(因为开/关中断指令<br>只能运行在内核态，这组指令如果能让用户随意使用会很危险)只能运行在内核态，这组指令如果能让用户随意使用会很危险)</p>
+
+        <h3 id="TestAndSet指令">
+          <a href="#TestAndSet指令" class="heading-link"><i class="fas fa-link"></i></a>TestAndSet指令</h3>
+      <p>简称TS指令，也有地方称为TestAndSetLock指令，或TSL指令</p>
+<p>TSL指令是用硬件实现的，执行的过程不允许被中断，只能一 -气呵成。以下是用C语言描述的逻辑</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526224047650.png" alt="image-20200526224047650"></p>
+<p>若刚开始lock是false, 则TSL返回的old值为false, while 循环条件不满足，直接跳过循环，进入临界区。若刚开始lock是true，则执行TLS后old返回的值为true，while 循环条件满足，会一直循环，直到当前访问临界区的进程在退出区进行“解锁”。相比软件实现方法，TSL 指令把“上锁”和“检查”操作用硬件的方式变成了一气呵成的原子操作。</p>
+<ul>
+<li><p>优点:实现简单，无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境。</p>
+</li>
+<li><p>缺点:不满足“让权等待”原则，暂时无法进入临界区的进程会占用CPU并循环执行TSL指令，从而导致“忙等”。</p>
+</li>
+</ul>
+
+        <h3 id="Swap指令">
+          <a href="#Swap指令" class="heading-link"><i class="fas fa-link"></i></a>Swap指令</h3>
+      <p>有的地方也叫Exchange指令，或简称XCHG指令。</p>
+<p>Swap指令是用硬件实现的，执行的过程不允许被中断，只能–气呵成。以下是用C语言描述的逻辑</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526224818667.png" alt="image-20200526224818667"></p>
+<p>逻辑.上来看Swap和TSL并无太大区别，都是先记录下此时临界区是否已经被上锁(记录在old变量上)，再将上锁标记lock设置为true，最后检查old，如果old为false则说明之前没有别的进程对临界区_上锁，则可跳出循环，进入临界区。</p>
+<ul>
+<li><p>优点:实现简单，无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境。</p>
+</li>
+<li><p>缺点:不满足“让权等待”原则，暂时无法进入临界区的进程会占用CPU并循环执行TSL指令，从而导致“忙等”。</p>
+</li>
+</ul>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526224926111.png" alt="image-20200526224926111"></p>
 </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://amourlover.xyz">Amour&amp;R</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/">http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://amourlover.xyz/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="paginator-prev__text">IP基础知识</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程的定义、组成、组织方式…"><span class="toc-number">1.</span> <span class="toc-text">
           进程的定义、组成、组织方式…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的定义"><span class="toc-number">1.1.</span> <span class="toc-text">
           进程的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的组成"><span class="toc-number">1.2.</span> <span class="toc-text">
@@ -564,4 +606,8 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></he
           单标志法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双标志先检查法"><span class="toc-number">12.2.</span> <span class="toc-text">
           双标志先检查法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双标志后检查法"><span class="toc-number">12.3.</span> <span class="toc-text">
           双标志后检查法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Peterson算法"><span class="toc-number">12.4.</span> <span class="toc-text">
-          Peterson算法</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/author.png" alt="avatar"></div><p class="sidebar-ov-author__text">Maintain self-discipline</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Amour&R</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.0.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.0.0"></script><script src="/js/stun-boot.js?v=2.0.0"></script><script src="/js/scroll.js?v=2.0.0"></script><script src="/js/header.js?v=2.0.0"></script><script src="/js/sidebar.js?v=2.0.0"></script></body></html>
+          Peterson算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程互斥的硬件实现方法"><span class="toc-number">13.</span> <span class="toc-text">
+          进程互斥的硬件实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#中断屏蔽方法"><span class="toc-number">13.1.</span> <span class="toc-text">
+          中断屏蔽方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TestAndSet指令"><span class="toc-number">13.2.</span> <span class="toc-text">
+          TestAndSet指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Swap指令"><span class="toc-number">13.3.</span> <span class="toc-text">
+          Swap指令</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/author.png" alt="avatar"></div><p class="sidebar-ov-author__text">Maintain self-discipline</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Amour&R</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.0.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.0.0"></script><script src="/js/stun-boot.js?v=2.0.0"></script><script src="/js/scroll.js?v=2.0.0"></script><script src="/js/header.js?v=2.0.0"></script><script src="/js/sidebar.js?v=2.0.0"></script></body></html>

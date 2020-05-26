@@ -634,6 +634,43 @@
           <a href="#Peterson算法" class="heading-link"><i class="fas fa-link"></i></a>Peterson算法</h3>
       <p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200522202550329.png" alt="image-20200522202550329"></p>
 <p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200522203438406.png" alt="image-20200522203438406"></p>
+
+        <h2 id="进程互斥的硬件实现方法">
+          <a href="#进程互斥的硬件实现方法" class="heading-link"><i class="fas fa-link"></i></a>进程互斥的硬件实现方法</h2>
+      <p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526223048805.png" alt="image-20200526223048805"></p>
+
+        <h3 id="中断屏蔽方法">
+          <a href="#中断屏蔽方法" class="heading-link"><i class="fas fa-link"></i></a>中断屏蔽方法</h3>
+      <p>利用“开/关中断指令”实现(与原语的实现思想相同，即在某进程开始访问临界区到结束访问为止都不允许被中断，也就不能发生进程切换，因此也不可能发生两个同时访问临界区的情况)</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526223439051.png" alt="image-20200526223439051"></p>
+<p>优点:简单、高效<br>缺点:不适用于多处理机;只适用于操作系统内核进程，不适用于用户进程(因为开/关中断指令<br>只能运行在内核态，这组指令如果能让用户随意使用会很危险)只能运行在内核态，这组指令如果能让用户随意使用会很危险)</p>
+
+        <h3 id="TestAndSet指令">
+          <a href="#TestAndSet指令" class="heading-link"><i class="fas fa-link"></i></a>TestAndSet指令</h3>
+      <p>简称TS指令，也有地方称为TestAndSetLock指令，或TSL指令</p>
+<p>TSL指令是用硬件实现的，执行的过程不允许被中断，只能一 -气呵成。以下是用C语言描述的逻辑</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526224047650.png" alt="image-20200526224047650"></p>
+<p>若刚开始lock是false, 则TSL返回的old值为false, while 循环条件不满足，直接跳过循环，进入临界区。若刚开始lock是true，则执行TLS后old返回的值为true，while 循环条件满足，会一直循环，直到当前访问临界区的进程在退出区进行“解锁”。相比软件实现方法，TSL 指令把“上锁”和“检查”操作用硬件的方式变成了一气呵成的原子操作。</p>
+<ul>
+<li><p>优点:实现简单，无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境。</p>
+</li>
+<li><p>缺点:不满足“让权等待”原则，暂时无法进入临界区的进程会占用CPU并循环执行TSL指令，从而导致“忙等”。</p>
+</li>
+</ul>
+
+        <h3 id="Swap指令">
+          <a href="#Swap指令" class="heading-link"><i class="fas fa-link"></i></a>Swap指令</h3>
+      <p>有的地方也叫Exchange指令，或简称XCHG指令。</p>
+<p>Swap指令是用硬件实现的，执行的过程不允许被中断，只能–气呵成。以下是用C语言描述的逻辑</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526224818667.png" alt="image-20200526224818667"></p>
+<p>逻辑.上来看Swap和TSL并无太大区别，都是先记录下此时临界区是否已经被上锁(记录在old变量上)，再将上锁标记lock设置为true，最后检查old，如果old为false则说明之前没有别的进程对临界区_上锁，则可跳出循环，进入临界区。</p>
+<ul>
+<li><p>优点:实现简单，无需像软件实现方法那样严格检查是否会有逻辑漏洞;适用于多处理机环境。</p>
+</li>
+<li><p>缺点:不满足“让权等待”原则，暂时无法进入临界区的进程会占用CPU并循环执行TSL指令，从而导致“忙等”。</p>
+</li>
+</ul>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200526224926111.png" alt="image-20200526224926111"></p>
 ]]></content>
       <tags>
         <tag>操作系统</tag>
