@@ -86,8 +86,15 @@
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527002207642.png">
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527002240336.png">
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527002428950.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527171531436.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527172116082.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527174145490.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527174433077.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527184130006.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527184648273.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527184736689.png">
 <meta property="article:published_time" content="2020-05-26T09:10:06.000Z">
-<meta property="article:modified_time" content="2020-05-26T16:25:10.878Z">
+<meta property="article:modified_time" content="2020-05-27T10:55:23.537Z">
 <meta property="article:author" content="Amour&amp;R">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -567,7 +574,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></he
       <p>用户进程可以通过使用操作系统提供的一对原语来对信号量进行操作，从而很方便的实现了进程互斥、进程同步。</p>
 <p>信号量其实就是一个变量(可以是- 一个整数，也可以是更复杂的记录型变量)，可以用一个信号量来表示系统中某种资源的数量，比如:系统中只有一台打印机，就可以设置一个初值为1的信号量。</p>
 <p>原语是一种特殊的程序段，其执行只能一气呵成，不可被中断。原语是由关中断/开中断指令实现的。软件解决方案的主要问题是由“进入区的各种操作无法一气呵成”，因此如果能把进入区、退出区的操作都用“原语”实现，使这些操作能“一气呵成”就能避免问题。</p>
-<p>一.对原语:wait(S)原语和signal(S)原语，可以把原语理解为我们自己写的函数，函数名分别为wait和signal,括号里的信号量S其实就是函数调用时传入的-一个参数。</p>
+<p>一对原语:wait(S)原语和signal(S)原语，可以把原语理解为我们自己写的函数，函数名分别为wait和signal,括号里的信号量S其实就是函数调用时传入的-一个参数。</p>
 <p>wait、signal 原语常简称为P、V操作(来自荷兰语proberen和verhogen)。因此，做题的时候常把wait(S)、signal(S) 两个操作分别写为P(S)、V(S)</p>
 
         <h3 id="信号量机制——整型信号量">
@@ -627,7 +634,63 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></he
 
         <h2 id="生产者消费者问题">
           <a href="#生产者消费者问题" class="heading-link"><i class="fas fa-link"></i></a>生产者消费者问题</h2>
-      </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://amourlover.xyz">Amour&amp;R</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/">http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://amourlover.xyz/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="paginator-prev__text">IP基础知识</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程的定义、组成、组织方式…"><span class="toc-number">1.</span> <span class="toc-text">
+      
+        <h3 id="问题描述">
+          <a href="#问题描述" class="heading-link"><i class="fas fa-link"></i></a>问题描述</h3>
+      <p>系统中有一组生产者进程和一-组消费者进程，生产者进程每次生产-一个产品放入缓冲区，消费者进程每次从缓冲区中取出一一个产品并使用。(注: 这里的“产品”理解为某种数据)生产者、消费者共享-一个初始为空、大小为n的缓冲区。</p>
+<p>只有缓冲区没满时，生产者才能把产品放入缓冲区，否则必须等待。</p>
+<p>只有缓冲区不空时，消费者才能从中取出产品，否则必须等待。</p>
+<p>缓冲区是临界资源，各进程必须互斥地访问。</p>
+<p>PV操作题目分析步骤:</p>
+<p>1.关系分析。找出题目中描述的各个进程，分析它们之间的同步、互斥关系。</p>
+<p>2.整理思路。根据各进程的操作流程确定P、V操作的大致顺序。</p>
+<p>3.设置信号量。设置需要的信号量，并根据题目条件确定信号量初值。 (互斥信号量初值一般为1，同步信号里的初如值要看对应资源的初如值足多少)</p>
+<img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527171531436.png" alt="image-20200527171531436" style="zoom:80%;">
+
+<img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527172116082.png" alt="image-20200527172116082" style="zoom:80%;">
+
+
+        <h3 id="P、V操作是否可以交换问题">
+          <a href="#P、V操作是否可以交换问题" class="heading-link"><i class="fas fa-link"></i></a>P、V操作是否可以交换问题</h3>
+      <p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527174145490.png" alt="image-20200527174145490"></p>
+<p>生产者消费者问题是一个互斥、同步的综合问题。对于初学者来说最难的是发现题目中隐含的两对同步关系。有时候是消费者需要等待生产者生产，有时候是生产者要等待消费者消费，这是两个不同的“一前一后问题”，因此也需要设置两个同步信号量。</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527174433077.png" alt="image-20200527174433077"></p>
+
+        <h3 id="多生产者多消费者问题">
+          <a href="#多生产者多消费者问题" class="heading-link"><i class="fas fa-link"></i></a>多生产者多消费者问题</h3>
+      
+        <h3 id="问题分析">
+          <a href="#问题分析" class="heading-link"><i class="fas fa-link"></i></a>问题分析</h3>
+      <p>桌子上有一只盘子，每次只能向其中放入一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，儿子专等着吃盘子中的橘子，女儿专等着吃盘子中的苹果。只有盘子空时，爸爸或妈妈才可向盘子中放一一个水果。仅当盘子中有自己需要的水果时，儿子或女儿可以从盘子中取出水果。</p>
+<ol>
+<li><p>关系分析。找出题目中描述的各个进程，分析它们之间的同步、互斥关系。</p>
+<ul>
+<li><p>互斥关系:</p>
+<ul>
+<li>对缓冲区(盘子)的访问要互斥地进行</li>
+</ul>
+</li>
+<li><p>同步关系(一前一后) :</p>
+<ol>
+<li>父亲将苹果放入盘子后，女儿才能取苹果</li>
+<li>母亲将橘子放入盘子后，儿子才能取橘子</li>
+<li>只有盘子为空时，父亲或母亲才能放入水果（“盘子为空”这个事件可以由儿子或女儿触发，事件发生后才允许父亲或母亲放水果）</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p>2.整理思路。根据各进程的操作流程确定P、V操作的大致顺序。</p>
+<p>3.设置信号量。设置需要的信号量，并根据题目条件确定信号量初值。( 互斥信号量初值一般为1，同步信号量的初始值要看对应资源的初始值是多少)</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527184130006.png" alt="image-20200527184130006"></p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527184648273.png" alt="image-20200527184648273"></p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527184736689.png" alt="image-20200527184736689"></p>
+<ul>
+<li>原因在于:本题中的缓冲区大小为1，在任何时刻，apple、 orange、 plate 三个同步信号量中最多只有一个是1。最多只有一个进程的P操作不会被阻塞，并因此在任何时刻，顺利地进入临界区…</li>
+</ul>
+<p>如果盘子（缓冲区）容量为2：</p>
+<p>父亲P(plate)，可以访问盘子→母亲P(plate)，可以访问盘子&gt;父亲在往盘子里放苹果，同时母亲也可以往盘子里放橘子。于是就出现了两个进程同时访问缓冲区的情况，有可能导致两个进程写入缓冲区的数据相互覆盖的情况。因此，如果缓冲区大小大于1，就必须专门设置一个互斥信号量mutex来保证互斥访问缓冲区。</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://amourlover.xyz">Amour&amp;R</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/">http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://amourlover.xyz/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="paginator-prev__text">IP基础知识</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程的定义、组成、组织方式…"><span class="toc-number">1.</span> <span class="toc-text">
           进程的定义、组成、组织方式…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的定义"><span class="toc-number">1.1.</span> <span class="toc-text">
           进程的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的组成"><span class="toc-number">1.2.</span> <span class="toc-text">
           进程的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的组织"><span class="toc-number">1.3.</span> <span class="toc-text">
@@ -693,4 +756,8 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></he
           信号量机制实现进程互斥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信号量机制实现进程同步"><span class="toc-number">14.2.</span> <span class="toc-text">
           信号量机制实现进程同步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信号量机制实现前驱关系"><span class="toc-number">14.3.</span> <span class="toc-text">
           信号量机制实现前驱关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生产者消费者问题"><span class="toc-number">15.</span> <span class="toc-text">
-          生产者消费者问题</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/author.png" alt="avatar"></div><p class="sidebar-ov-author__text">Maintain self-discipline</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Amour&R</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.0.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.0.0"></script><script src="/js/stun-boot.js?v=2.0.0"></script><script src="/js/scroll.js?v=2.0.0"></script><script src="/js/header.js?v=2.0.0"></script><script src="/js/sidebar.js?v=2.0.0"></script></body></html>
+          生产者消费者问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">15.1.</span> <span class="toc-text">
+          问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P、V操作是否可以交换问题"><span class="toc-number">15.2.</span> <span class="toc-text">
+          P、V操作是否可以交换问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多生产者多消费者问题"><span class="toc-number">15.3.</span> <span class="toc-text">
+          多生产者多消费者问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题分析"><span class="toc-number">15.4.</span> <span class="toc-text">
+          问题分析</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/author.png" alt="avatar"></div><p class="sidebar-ov-author__text">Maintain self-discipline</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Amour&R</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.0.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.0.0"></script><script src="/js/stun-boot.js?v=2.0.0"></script><script src="/js/scroll.js?v=2.0.0"></script><script src="/js/header.js?v=2.0.0"></script><script src="/js/sidebar.js?v=2.0.0"></script></body></html>
