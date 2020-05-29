@@ -104,8 +104,13 @@
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527232709330.png">
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527232902726.png">
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200527233342980.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200529234042273.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200529235250341.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200529235937000.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530001252964.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530001556870.png">
 <meta property="article:published_time" content="2020-05-26T09:10:06.000Z">
-<meta property="article:modified_time" content="2020-05-27T15:36:47.169Z">
+<meta property="article:modified_time" content="2020-05-29T16:17:54.697Z">
 <meta property="article:author" content="Amour&amp;R">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -132,7 +137,7 @@ var CONFIG = {
   sourcePath: {"js":"js","css":"css","images":"images"},
 };
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Amour&amp;R'blog</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><div class="sticky-top" data-popover="置顶文章" data-popover-pos="up"><span class="sticky-top__icon"><i class="fas fa-thumbtack"></i></span></div><h1 class="post-title">操作系统第二章</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-05-26</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-05-27</span></span></div></header><div class="post-body"><p>进程、一些算法、信号量、问题、死锁</p>
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Amour&amp;R'blog</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><div class="sticky-top" data-popover="置顶文章" data-popover-pos="up"><span class="sticky-top__icon"><i class="fas fa-thumbtack"></i></span></div><h1 class="post-title">操作系统第二章</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-05-26</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-05-30</span></span></div></header><div class="post-body"><p>进程、一些算法、信号量、问题、死锁</p>
 <a id="more"></a>
 
 
@@ -771,6 +776,129 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></he
 
         <h2 id="管程">
           <a href="#管程" class="heading-link"><i class="fas fa-link"></i></a>管程</h2>
+      <ul>
+<li>管程是一种特殊的软件模块，有这些部分组成: <ol>
+<li>局部于管程的共享数据结构说明;</li>
+<li>对该数据结构进行操作的一-组过程;</li>
+<li>对局部于管程的共享数据设置初始值的语句;</li>
+</ol>
+</li>
+</ul>
+<p>4.管程有一个名字。</p>
+<ul>
+<li>管程的基本特征:<ol>
+<li>管程的基本特征:</li>
+<li>一个进程只有通过调用管程内的过程才能进入管程访问共享数据;</li>
+<li>每次仅允许一个进程在管程内执行某个内部过程。</li>
+</ol>
+</li>
+</ul>
+
+        <h2 id="死锁">
+          <a href="#死锁" class="heading-link"><i class="fas fa-link"></i></a>死锁</h2>
+      
+        <h3 id="死锁的概念">
+          <a href="#死锁的概念" class="heading-link"><i class="fas fa-link"></i></a>死锁的概念</h3>
+      <ul>
+<li>在并发环境下各进程因竞争资源而造成的一种互相等待对方手里的资源，导致各进程都阻塞，都无法向前推进的现象，就是“死锁”。发生死锁后若无外力干涉，这些进程都将无法向前推进。</li>
+</ul>
+
+        <h4 id="死锁、饥饿、死循环的区别">
+          <a href="#死锁、饥饿、死循环的区别" class="heading-link"><i class="fas fa-link"></i></a>死锁、饥饿、死循环的区别</h4>
+      <ul>
+<li><p>死锁:各进程互相等待对方手里的资源，导致各进程都阻塞，无法向前推进的现象。</p>
+</li>
+<li><p>饥饿:由于长期得不到想要的资源，某进程无法向前推进的现象。比如:在短进程优先(SPF) 算法中，若有源源不断的短进程到来，则长进程将一直得不到处理机， 从而发生长进程“饥饿”,</p>
+</li>
+<li><p>死循环:某进程执行过程中一直跳不出某个循环的现象。有时是因为程序逻辑bug导致的，有时是程序员故意设计的。</p>
+</li>
+</ul>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200529234042273.png" alt="image-20200529234042273"></p>
+
+        <h4 id="死锁产生的必要条件">
+          <a href="#死锁产生的必要条件" class="heading-link"><i class="fas fa-link"></i></a>死锁产生的必要条件</h4>
+      <p>产生死锁必须同时满足一下四个条件，只 要其中任一条件不成立，死锁就不会发生。</p>
+<ol>
+<li><p>互斥条件:只有对必须互斥使用的资源的争抢才会导致死锁( 如哲学家的筷子、打印机设备)。像内存、扬声器这样可以同时让多个进程使用的资源是不会导致死锁的(因为进程不用阻塞等待这种资源)。</p>
+</li>
+<li><p>不剥夺条件:进程所获得的资源在未使用完之前，不能由其他进程强行夺走，只能主动释放。</p>
+</li>
+<li><p>请求和保持条件:进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源又被其他进程占有，此时请求进程被阻塞，但又对自己已有的资源保持不放。</p>
+</li>
+<li><p>循环等待条件:存在一种进程资源的循环等待链，链中的每一个进程已获得的资源同时被下一个进程所请求。</p>
+</li>
+</ol>
+<p>注意!发生死锁时一定有循环等待，但是发生循环等待时未必死锁( 循环等待是死锁的必要不充分条件)</p>
+<p>如果同类资源数大于1，则即使有循环等待，也未必发生死锁。但如果系统中每类资源都只有一个，那循环等待就是死锁的充分必要条件了。</p>
+
+        <h4 id="什么时候会发生死锁">
+          <a href="#什么时候会发生死锁" class="heading-link"><i class="fas fa-link"></i></a>什么时候会发生死锁</h4>
+      <ol>
+<li><p>对系统资源的竞争。各进程对不可剥夺的资源(如打印机)的竞争可能引起死锁，对可剥夺的资源(CPU)的竞争是不会引起死锁的。</p>
+</li>
+<li><p>进程推进顺序非法。请求和释放资源的顺序不当，也同样会导致死锁。例如，并发执行的进程P1、P2分别申请并占有了资源R1、R2，之后进程P1又紧接着申请资源R2，而进程P2又申请资源R1,两者会因为申请的资源被对方占有而阻塞，从而发生死锁。</p>
+</li>
+<li><p>信号量的使用不当也会造成死锁。如生产者~消费者问题中，如果实现互斥的P操作在实现同步的P操作之前，就有可能导致死锁。( 可以把互斥信号量、同步信号量也看做是一-种抽象的系统资源)</p>
+</li>
+</ol>
+<p>总之，对不可剥夺资源的不合理分配，可能导致死锁。</p>
+
+        <h4 id="死锁的处理策略">
+          <a href="#死锁的处理策略" class="heading-link"><i class="fas fa-link"></i></a>死锁的处理策略</h4>
+      <ol>
+<li><p>预防死锁。破坏死锁产生的四个必要条件中的一一个或几个。</p>
+</li>
+<li><p>避免死锁。用某种方法防止系统进入不安全状态，从而避免死锁( 银行家算法)</p>
+</li>
+<li><p>死锁的检测和解除。允许死锁的发生，不过操作系统会负责检测出死锁的发生，然后采取某种措施解除死锁。</p>
+</li>
+</ol>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200529235250341.png" alt="image-20200529235250341"></p>
+
+        <h3 id="死锁的处理策略——预防死锁">
+          <a href="#死锁的处理策略——预防死锁" class="heading-link"><i class="fas fa-link"></i></a>死锁的处理策略——预防死锁</h3>
+      
+        <h4 id="破坏互斥条件">
+          <a href="#破坏互斥条件" class="heading-link"><i class="fas fa-link"></i></a>破坏互斥条件</h4>
+      <p>互斥条件:只有对必须互斥使用的资源的争抢才会导致死锁。</p>
+<p>如果把只能互斥使用的资源改造为允许共享使用，则系统不会进入死锁状态。比如: SPOOLing技术。操作系统可以采用SPOOLing技术把独占设备在逻辑.上改造成共享设备。比如，用SPOOLing技 术将打印机改造为共享设备….</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200529235937000.png" alt="image-20200529235937000"></p>
+<p>该策略的缺点:并不是所有的资源都可以改造成可共享使用的资源。并且为了系统安全，很多地方还必须保护这种互斥性。因此，很多时候都无法破坏互斥条件。</p>
+
+        <h4 id="破坏不剥夺条件">
+          <a href="#破坏不剥夺条件" class="heading-link"><i class="fas fa-link"></i></a>破坏不剥夺条件</h4>
+      <p>不剥夺条件:进程所获得的资源在未使用完之前，不能由其他进程强行夺走，只能主动释放。</p>
+<p>破坏不剥夺条件:</p>
+<p>方案一:当某个进程请求新的资源得不到满足时，它必须立即释放保持的所有资源，待以后需要时再重新申请。也就是说，即使某些资源尚未使用完，也需要主动释放，从而破坏了不可剥夺条件。</p>
+<p>方案二:当某个进程需要的资源被其他进程所占有的时候，可以由操作系统协助，将想要的资源强行剥夺。这种方式一-般需要考虑各进程的优先级(比如:剥夺调度方式，就是将处理机资源强行剥夺给优先级更高的进程使用)</p>
+<p>该策略的缺点:</p>
+<p>1.实现起来比较复杂。</p>
+<p>2.释放已获得的资源可能造成前一阶段工作的失效。因此这种方法一般只适用于易保存和恢复状态的资源，如CPU。</p>
+<p>3.反复地申请和释放资源会增加系统开销，降低系统吞吐量。</p>
+<p>4.若采用方案一，意味着只要暂时得不到某个资源，之前获得的那些资源就都需要放弃，以后再重新申请。如果一直发生这样的情况，就会导致进程饥饿。</p>
+
+        <h4 id="破坏请求和保持条件">
+          <a href="#破坏请求和保持条件" class="heading-link"><i class="fas fa-link"></i></a>破坏请求和保持条件</h4>
+      <p>请求和保持条件:进程已经保持了至少-一个资源，但又提出了新的资源请求，而该资源又被其他进程占有，此时请求进程被阻塞，但又对自己已有的资源保持不放。</p>
+<p>可以采用静态分配方法，即进程在运行前- - 次申请完它所需要的全部资源，在它的资源未满足前,不让它投入运行。一旦投入运行后，这些资源就- -直归它所有，该进程就不会再请求别的任何资源了。</p>
+<p>该策略实现起来简单，但也有明显的缺点:</p>
+<p>有些资源可能只需要用很短的时间，因此如果进程的整个运行期间都一直保持着所有资源，就会造成严重的资源浪费，资源利用率极低。另外，该策略也有可能导致某些进程饥饿。</p>
+
+        <h4 id="破坏循坏等待条件">
+          <a href="#破坏循坏等待条件" class="heading-link"><i class="fas fa-link"></i></a>破坏循坏等待条件</h4>
+      <p>循环等待条件:存在一种进程资源的循环等待链，链中的每一个进程己获得的资源同时被下一个进程所请求。</p>
+<p>可采用顺序资源分配法。首先给系统中的资源编号，规定每个进程必须按编号递增的顺序请求资源，同类资源(即编号相同的资源)一次申请完。</p>
+<p>原理分析:一个进程只有已占有小编号的资源时，才有资格申请更大编号的资源。按此规则，已持有大编号资源的进程不可能逆向地回来申请小编号的资源，从而就不会产生循环等待的现象。</p>
+<img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530001252964.png" alt="image-20200530001252964" style="zoom:80%;">
+
+<p>该策略的缺点:</p>
+<p>1.不方便增加新的设备，因为可能需要重新分配所有的编号;</p>
+<p>2.进程实际使用资源的顺序可能和编号递增顺序不一致，会导致资源浪费;</p>
+<p>3.必须按规定次序申请资源，用户编程麻烦。</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530001556870.png" alt="image-20200530001556870"></p>
+
+        <h3 id="死锁的处理策略——避免死锁（银行家算法）">
+          <a href="#死锁的处理策略——避免死锁（银行家算法）" class="heading-link"><i class="fas fa-link"></i></a>死锁的处理策略——避免死锁（银行家算法）</h3>
       </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://amourlover.xyz">Amour&amp;R</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/">http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://amourlover.xyz/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="paginator-prev__text">IP基础知识</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程的定义、组成、组织方式…"><span class="toc-number">1.</span> <span class="toc-text">
           进程的定义、组成、组织方式…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的定义"><span class="toc-number">1.1.</span> <span class="toc-text">
           进程的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的组成"><span class="toc-number">1.2.</span> <span class="toc-text">
@@ -848,4 +976,16 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></he
           读者—写者问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何实现-1"><span class="toc-number">18.1.</span> <span class="toc-text">
           如何实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#哲学家进餐问题"><span class="toc-number">19.</span> <span class="toc-text">
           哲学家进餐问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#管程"><span class="toc-number">20.</span> <span class="toc-text">
-          管程</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/author.png" alt="avatar"></div><p class="sidebar-ov-author__text">Maintain self-discipline</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Amour&R</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.0.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.0.0"></script><script src="/js/stun-boot.js?v=2.0.0"></script><script src="/js/scroll.js?v=2.0.0"></script><script src="/js/header.js?v=2.0.0"></script><script src="/js/sidebar.js?v=2.0.0"></script></body></html>
+          管程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#死锁"><span class="toc-number">21.</span> <span class="toc-text">
+          死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁的概念"><span class="toc-number">21.1.</span> <span class="toc-text">
+          死锁的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#死锁、饥饿、死循环的区别"><span class="toc-number">21.1.1.</span> <span class="toc-text">
+          死锁、饥饿、死循环的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#死锁产生的必要条件"><span class="toc-number">21.1.2.</span> <span class="toc-text">
+          死锁产生的必要条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么时候会发生死锁"><span class="toc-number">21.1.3.</span> <span class="toc-text">
+          什么时候会发生死锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#死锁的处理策略"><span class="toc-number">21.1.4.</span> <span class="toc-text">
+          死锁的处理策略</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁的处理策略——预防死锁"><span class="toc-number">21.2.</span> <span class="toc-text">
+          死锁的处理策略——预防死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#破坏互斥条件"><span class="toc-number">21.2.1.</span> <span class="toc-text">
+          破坏互斥条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#破坏不剥夺条件"><span class="toc-number">21.2.2.</span> <span class="toc-text">
+          破坏不剥夺条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#破坏请求和保持条件"><span class="toc-number">21.2.3.</span> <span class="toc-text">
+          破坏请求和保持条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#破坏循坏等待条件"><span class="toc-number">21.2.4.</span> <span class="toc-text">
+          破坏循坏等待条件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁的处理策略——避免死锁（银行家算法）"><span class="toc-number">21.3.</span> <span class="toc-text">
+          死锁的处理策略——避免死锁（银行家算法）</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/author.png" alt="avatar"></div><p class="sidebar-ov-author__text">Maintain self-discipline</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Amour&R</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.0.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.0.0"></script><script src="/js/stun-boot.js?v=2.0.0"></script><script src="/js/scroll.js?v=2.0.0"></script><script src="/js/header.js?v=2.0.0"></script><script src="/js/sidebar.js?v=2.0.0"></script></body></html>
