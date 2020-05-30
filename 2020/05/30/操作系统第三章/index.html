@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.0.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.0.0" type="image/png" sizes="32x32"><meta name="description" content="内存、文件、I-O设备">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统第三章">
+<meta property="og:url" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/index.html">
+<meta property="og:site_name" content="Amour&amp;R&#39;blog">
+<meta property="og:description" content="内存、文件、I-O设备">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530162354662.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530162526704.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530163329711.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530163514719.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530184423631.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530185309511.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530185832833.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530191425456.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530192158345.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530192740033.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530193122346.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530193253148.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530193512380.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530193550955.png">
+<meta property="article:published_time" content="2020-05-30T06:54:02.000Z">
+<meta property="article:modified_time" content="2020-05-30T11:36:29.012Z">
+<meta property="article:author" content="Amour&amp;R">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530162354662.png"><meta name="keywords" content="Amour&amp;R, Amour&amp;R'blog"><meta name="description" content=""><title>操作系统第三章 | Amour&amp;R'blog</title><link ref="canonical" href="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.0.0"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Amour&amp;R'blog</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">操作系统第三章</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-05-30</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-05-30</span></span></div></header><div class="post-body"><p>内存、文件、I-O设备</p>
+<a id="more"></a>
+
+
+        <h2 id="内存的基础知识">
+          <a href="#内存的基础知识" class="heading-link"><i class="fas fa-link"></i></a>内存的基础知识</h2>
+      
+        <h3 id="什么是内存，有什么作用">
+          <a href="#什么是内存，有什么作用" class="heading-link"><i class="fas fa-link"></i></a>什么是内存，有什么作用</h3>
+      <p>内存是用于存放数据的硬件。程序执行前需要先放到内存中才能被CPU处理。</p>
+<p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530162354662.png" alt="image-20200530162354662"></p>
+
+        <h3 id="常用的数量单位">
+          <a href="#常用的数量单位" class="heading-link"><i class="fas fa-link"></i></a>常用的数量单位</h3>
+      <p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530162526704.png" alt="image-20200530162526704"></p>
+
+        <h3 id="进程的运行原理——指令">
+          <a href="#进程的运行原理——指令" class="heading-link"><i class="fas fa-link"></i></a>进程的运行原理——指令</h3>
+      <p>可见，我们写的代码要翻译成CPU能识别的指令。这些指令会告诉CPU应该去内存的哪个地址存/取数据,这个数据应该做什么样的处理。在这个例子中，指令中直接给出了变量x的实际存放地址(物理地址)。但实际在生成机器指令的时候并不知道该进程的数据会被放到什么位置。所以编译生成的指令中–般是使用逻辑地址(相对地址)。</p>
+
+        <h3 id="逻辑地址vs物理地址">
+          <a href="#逻辑地址vs物理地址" class="heading-link"><i class="fas fa-link"></i></a>逻辑地址vs物理地址</h3>
+      <p>住酒店时酒店给你们安排了4个房号相连的房间。四个人按学号递增次序入住房间。比如0、1、2、3号同学分别入住了5、6、7、8号房间。</p>
+<p>四个人的编号0、1、2、3其实是一个“相对位置”，而各自入住的房间号是一个“绝对位置”。</p>
+<p>只要知道0号同学住的是房号为N的房间，那么M号同学的房号一定是N+M。</p>
+<p>也就是说，只要知道各个同学的“相对位置”和“起始房号”，就一定可以算出所有同学的“绝对位置“</p>
+<p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530163329711.png" alt="image-20200530163329711"></p>
+
+        <h3 id="从写程序到程序运行">
+          <a href="#从写程序到程序运行" class="heading-link"><i class="fas fa-link"></i></a>从写程序到程序运行</h3>
+      <p>编译:由编译程序将用户源代码编译成若干个目标模块(编译就是把高级语言翻译为机器语言)</p>
+<p>链接:由链接程序将编译后形成的一组目标模块，以及所需库函数链接在一起，形成一个完整的装入模块</p>
+<p>装入(装载) :由装入程序将装入模块装入内存运行</p>
+<p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530163514719.png" alt="image-20200530163514719"></p>
+
+        <h3 id="装入板块装入内存">
+          <a href="#装入板块装入内存" class="heading-link"><i class="fas fa-link"></i></a>装入板块装入内存</h3>
+      <p>装入的三种方式(用三种不同的方法完成逻辑地址到物理地址的转换);</p>
+<ol>
+<li><p>绝对装入</p>
+</li>
+<li><p>静态重定位</p>
+</li>
+<li><p>动态重定位</p>
+</li>
+</ol>
+
+        <h4 id="绝对装入">
+          <a href="#绝对装入" class="heading-link"><i class="fas fa-link"></i></a>绝对装入</h4>
+      <p>绝对装入:在编译时，如果知道程序将放到内存中的哪个位置，编译程序将产生绝对地址的目标代码。装入程序按照装入模块中的地址，将程序和数据装入内存。</p>
+<p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530184423631.png" alt="image-20200530184423631"></p>
+<ul>
+<li><p>绝对装入只适用于单道程序环境。</p>
+</li>
+<li><p>程序中使用的绝对地址，可在编译或汇编时给出，也可由程序员直接赋予。通常情况下都是编译或汇编时再转换为绝对地址。</p>
+</li>
+</ul>
+
+        <h4 id="静态重定位">
+          <a href="#静态重定位" class="heading-link"><i class="fas fa-link"></i></a>静态重定位</h4>
+      <p>静态重定位:又称可重定位装入。编译、链接后的装入模块的地址:都是从0开始的，指令中使用的地址、数据存放的地址都是相对于起始地址而言的逻辑地址。可根据内存的当前情况，将装入模块装入到内存的适当位置。装入时对地址进行“重定位”，将逻辑地址变换为物理地址(地址变换是在装入时一次完成的)。</p>
+<p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530185309511.png" alt="image-20200530185309511"></p>
+<ul>
+<li>静态重定位的特点是在一个作业装入内存时，必须分配其要求的全部内存空间，如果没有足够的内存，就不能装入该作业。作业一旦进入内存后， 在运行期间就不能再移动，也不能再申请内存空间。</li>
+</ul>
+
+        <h4 id="动态重定位">
+          <a href="#动态重定位" class="heading-link"><i class="fas fa-link"></i></a>动态重定位</h4>
+      <p>动态重定位:又称动态运行时装入。编译、链接后的装入模块的地址都是从0开始的。装入程序把装入模块装入内存后，并不会立即把逻辑地址转换为物理地址，而是把地址转换推迟到程序真正要执行时才进行。因此装入内存后所有的地址依然是逻辑地址。这种方式需要-一个重定位寄存器的支持。</p>
+<p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530185832833.png" alt="image-20200530185832833"></p>
+<ul>
+<li>采用动态重定位时允许程序在内存中发生移动。</li>
+<li>并且可将程序分配到不连续的存储区中:在程序运行前只需装入它的部分代码即可投入运行，然后在程序运行期间，根据需要动态申请分配内存:便于程序段的共享，可以向用户提供一个比存储空间大得多的地址空间。</li>
+</ul>
+
+        <h3 id="链接的三种方式">
+          <a href="#链接的三种方式" class="heading-link"><i class="fas fa-link"></i></a>链接的三种方式</h3>
+      <p>链接的三种方式:</p>
+<ol>
+<li><p>静态链接:在程序运行之前，先将各目标模块及它们所需的库函数连接成一个完整的可执行文件(装入模块)之后不再拆开。</p>
+</li>
+<li><p>装入时动态链接:将各目标模块装入内存时，边装入边链接的链接方式。</p>
+</li>
+<li><p>运行时动态链接:在程序执行中需要该目标模块时，才对它进行链接。其优点是便于修改和更新，便于实现对目标模块的共享。</p>
+</li>
+</ol>
+<p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530191425456.png" alt="image-20200530191425456"></p>
+
+        <h2 id="内存管理的概念">
+          <a href="#内存管理的概念" class="heading-link"><i class="fas fa-link"></i></a>内存管理的概念</h2>
+      
+        <h3 id="内存空间的分配与回收">
+          <a href="#内存空间的分配与回收" class="heading-link"><i class="fas fa-link"></i></a>内存空间的分配与回收</h3>
+      <p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530192158345.png" alt="image-20200530192158345"></p>
+<p>操作系统作为系统资源的管理者，当然也需要对内存进行管理，要管些什么呢?</p>
+<p>1.操作系统负责内存空间的分配与回收</p>
+<p>2.操作系统需要提供某种技术从逻辑上对内存空间进行扩充</p>
+<p>3.操作系统需要提供地址转换功能，负责程序的逻辑地址与物理地址的转换（过程称为地址重定位）</p>
+<p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530192740033.png" alt="image-20200530192740033"></p>
+<p>4.内存保护：操作系统需要提供内存保护功能。保证各进程在各自存储空间内</p>
+<img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530193122346.png" alt="image-20200530193122346" style="zoom:80%;">
+
+<p>内存保护可采取两种方法:</p>
+<ul>
+<li>方法一:在CPU中设置一对上、下限寄存器，存放进程的上、下限地址。 进程的指令要访问某个地址时，CPU检查是否越界。</li>
+</ul>
+<img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530193253148.png" alt="image-20200530193253148" style="zoom:80%;">
+
+<ul>
+<li>方法二:采用重定位寄存器(又称基址寄存器)和界地址寄存器(又称限长寄存器)进行越界检查。重定位寄存器中存放的是进程的起始物理地址。界地址寄存器中存放的是进程的最大逻辑地址。</li>
+</ul>
+<p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530193512380.png" alt="image-20200530193512380"></p>
+<p><img src="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/image-20200530193550955.png" alt="image-20200530193550955"></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://amourlover.xyz">Amour&amp;R</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/">http://amourlover.xyz/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://amourlover.xyz/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/"><span class="paginator-prev__text">操作系统第二章</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存的基础知识"><span class="toc-number">1.</span> <span class="toc-text">
+          内存的基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是内存，有什么作用"><span class="toc-number">1.1.</span> <span class="toc-text">
+          什么是内存，有什么作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的数量单位"><span class="toc-number">1.2.</span> <span class="toc-text">
+          常用的数量单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的运行原理——指令"><span class="toc-number">1.3.</span> <span class="toc-text">
+          进程的运行原理——指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑地址vs物理地址"><span class="toc-number">1.4.</span> <span class="toc-text">
+          逻辑地址vs物理地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从写程序到程序运行"><span class="toc-number">1.5.</span> <span class="toc-text">
+          从写程序到程序运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装入板块装入内存"><span class="toc-number">1.6.</span> <span class="toc-text">
+          装入板块装入内存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#绝对装入"><span class="toc-number">1.6.1.</span> <span class="toc-text">
+          绝对装入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#静态重定位"><span class="toc-number">1.6.2.</span> <span class="toc-text">
+          静态重定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动态重定位"><span class="toc-number">1.6.3.</span> <span class="toc-text">
+          动态重定位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接的三种方式"><span class="toc-number">1.7.</span> <span class="toc-text">
+          链接的三种方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存管理的概念"><span class="toc-number">2.</span> <span class="toc-text">
+          内存管理的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存空间的分配与回收"><span class="toc-number">2.1.</span> <span class="toc-text">
+          内存空间的分配与回收</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/author.png" alt="avatar"></div><p class="sidebar-ov-author__text">Maintain self-discipline</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Amour&R</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.0.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.0.0"></script><script src="/js/stun-boot.js?v=2.0.0"></script><script src="/js/scroll.js?v=2.0.0"></script><script src="/js/header.js?v=2.0.0"></script><script src="/js/sidebar.js?v=2.0.0"></script></body></html>

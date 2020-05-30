@@ -109,8 +109,13 @@
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200529235937000.png">
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530001252964.png">
 <meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530001556870.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530133810329.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530133730888.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530140735546.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530142426537.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530144825770.png">
 <meta property="article:published_time" content="2020-05-26T09:10:06.000Z">
-<meta property="article:modified_time" content="2020-05-29T16:17:54.697Z">
+<meta property="article:modified_time" content="2020-05-30T06:51:38.473Z">
 <meta property="article:author" content="Amour&amp;R">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -899,7 +904,98 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></he
 
         <h3 id="死锁的处理策略——避免死锁（银行家算法）">
           <a href="#死锁的处理策略——避免死锁（银行家算法）" class="heading-link"><i class="fas fa-link"></i></a>死锁的处理策略——避免死锁（银行家算法）</h3>
-      </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://amourlover.xyz">Amour&amp;R</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/">http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://amourlover.xyz/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="paginator-prev__text">IP基础知识</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程的定义、组成、组织方式…"><span class="toc-number">1.</span> <span class="toc-text">
+      <p>所谓安全序列，就是指如果系统按照这种序列分配资源，则每个进程都能顺利完成。只要能找出一个安全序列，系统就是安全状态。当然，安全序列可能有多个。</p>
+<p>如果分配了资源之后，系统中找不出任何一个安全序列，系统就进入了不安全状态。这就意味着之后可能所有进程都无法顺利的执行下去。当然，如果有进程提前归还了一些资源，那系统也有可能重新回到安全状态，不过我们在分配资源之前总是要考虑到最坏的情况。</p>
+<p>如果系统处于安全状态，就一定不会发生死锁。如果系统进入不安全状态，就可能发生死锁(处于不安全状态未必就是发生了死锁，但发生死锁时–定是在不安全状态)因此可以在资源分配之前预先判断这次分配是否会导致系统进入不安全状态，以此决定是否答应资源分配请求。这也是“银行家算法”的核心思想。</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530133810329.png" alt="image-20200530133810329"></p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530133730888.png" alt="image-20200530133730888"></p>
+
+        <h4 id="银行家算法">
+          <a href="#银行家算法" class="heading-link"><i class="fas fa-link"></i></a>银行家算法</h4>
+      <p>假设系统中有n个进程，m种资源</p>
+<p>每个进程在运行前先声明对各种资源的最大需求数，则可用一个n* m的矩阵(可用二维数组实现)表示所有进程对各种资源的最大需求数。不妨称为最大需求矩阵Max，Max[i, j]=K表示进程Pi最多需要K个资源Rj。同理，系统可以用一个n*m的分配矩阵Allocation表示对所有进程的资源分配情况。Max - Allocation =Need矩阵，表示各进程最多还需要多少各类资源。另外，还要用一个长度为m的一维数组Available表示当前系统中还有多少可用资源。</p>
+<p>某进程Pi向系统申请资源，可用一个长度为m的一维数组Request,表示本次申请的各种资源量。</p>
+<p>可用银行家算法预判本次分配是否会导致系统进入不安全状态:</p>
+<p>①如果RequestijsNeed[i, jl (0sjsm)便转向②;否则认为出错。（因为它所需要的资源数已超过它所宣布的最大值。）</p>
+<p>②如果Request[i]sAvailable[j] (0sjsm),便转向③;否则表示尚无足够资源，Pi必须等待。</p>
+<p>③系统试探着把资源分配给进程Pi，并修改相应的数据(并非真的分配，修改数值只是为了做预判) :</p>
+<p>Available = Available - Request;</p>
+<p>Allocation[i, j] = Allocation[i, j] + Request[i];</p>
+<p>Need[i, j] = Need[i, j] - Request,[j]</p>
+<p>④操作系统执行安全性算法，检查此次资源分配后，系统是否处于安全状态。若安全，才正式分配;否则，恢复相应数据，让进程阻塞等待。</p>
+<ul>
+<li><p>数据结构:</p>
+<p>长度为m的一-维数组Available表示还有多少可用资源</p>
+<p>n*m矩阵Max表示各进程对资源的最大需求数</p>
+<p>n*m矩阵Allocation表示已经给各进程分配了多少资源</p>
+<p>Max - Allocation = Need矩阵表示各进程最多还需要多少资源用长度为m的一-位数组Request表示进程此次申请的各种资源数</p>
+</li>
+<li><p>银行家算法步骤：</p>
+<p>①检查此次申请是否超过了之前声明的最大需求数</p>
+<p>②检查此时系统剩余的可用资源是否还能满足这次请求</p>
+<p>③试探着分配，更改各数据结构</p>
+<p>④用安全性算法检查此次分配是否会导致系统进入不安全状态</p>
+</li>
+<li><p>安全性算法步骤:</p>
+<p>检查当前的剩余可用资源是否能满足某个进程的最大需求，如果可以，就把该进程加入安全序列，并把该进程持有的资源全部回收。</p>
+<p>不断重复上述过程，看最终是否能让所有进程都加入安全序列。</p>
+</li>
+</ul>
+<p>系统处于不安全状态未必死锁，但死锁时一定处于不安全状态。 系统处于安全状态一定不 会死锁。</p>
+
+        <h3 id="死锁的处理策略——检测和解除">
+          <a href="#死锁的处理策略——检测和解除" class="heading-link"><i class="fas fa-link"></i></a>死锁的处理策略——检测和解除</h3>
+      
+        <h4 id="死锁的检测">
+          <a href="#死锁的检测" class="heading-link"><i class="fas fa-link"></i></a>死锁的检测</h4>
+      <p>为了能对系统是否已发生了死锁进行检测，必须:</p>
+<ol>
+<li><p>用某种数据结构来保存资源的请求和分配信息:</p>
+</li>
+<li><p>提供一种算法， 利用上述信息来检测系统是否已进入死锁状态。</p>
+</li>
+</ol>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530140735546.png" alt="image-20200530140735546"></p>
+<p>如果系统中剩余的可用资源数足够满足进程的需求，那么这个进程暂时是不会阻塞的，可以顺利地执行下去。如果这个进程执行结束了把资源归还系统，就可能使某些正在等待资源的进程被激活，并顺利地执行下去。相应的，这些被激活的进程执行完了之后又会归还一些资源，这样可能又会激活另外-些阻塞的进程…</p>
+<p>如果按上述过程分析，最终能消除所有边，就称这个图是可完全简化的。此时- -定没有发生死锁(相当于能找到一个安全序列)</p>
+<p>如果最终不能消除所有边，那么此时就是发生了死锁。</p>
+<p>最终还连着边的那些进程就是处于死锁状态的进程。</p>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530142426537.png" alt="image-20200530142426537"></p>
+<p>检测死锁的算法:</p>
+<p>1)在资源分配图中，找出既不阻塞又不是孤点的进程Pi (即找出一条有向边与它相连，且该有向边对应资源的申请数量小于等于系统中已有空闲资源数量。如下图中，R1没有空闲资源，R2有一个空闲资源。若所有的连接该进程的边均满足上述条件，则这个进程能继续运行直至完成，然后释放它所占有的所有资源)。消去它所有的请求边和分配变，使之称为孤立的结点。在下图中，P1是满足这一条件的进程结点，于是将P1的所有边消去。</p>
+<p>2)进程Pi所释放的资源，可以唤醒某些因等待这些资源而阻塞的进程，原来的阻塞进程可能变为非阻塞进程。在下图中，P2 就满足这样的条件。根据1)中的方法进行一系列简化后，若能消去途中所有的边，则称该图是可完全简化的。</p>
+<ul>
+<li>死锁定理:如果某时刻系统的资源分配图是不可完全简化的，那么此时系统死锁 </li>
+</ul>
+
+        <h4 id="死锁的解除">
+          <a href="#死锁的解除" class="heading-link"><i class="fas fa-link"></i></a>死锁的解除</h4>
+      <p>一旦检测出死锁的发生，就应该立即解除死锁。</p>
+<p>补充:并不是系统中所有的进程都是死锁状态，用死锁检测算法化简资源分配图后，还连着边的那些进程就是死锁进程那些进程就是死锁进程</p>
+<p>解除死锁的主要方法有:</p>
+<ol>
+<li><p>资源剥夺法。挂起(暂时放到外存上)某些死锁进程，并抢占它的资源，将这些资源分配给其他的死锁进程。但是应防止被挂起的进程长时间得不到资源而饥饿。</p>
+</li>
+<li><p>撤销进程法(或称终止进程法)。强制撤销部分、甚至全部死锁进程，并剥夺这些进程的资源。这种方式的优点是实现简单，但所付出的代价可能会很大。因为有些进程可能已经运行了很长时间，已经接近结束了，一旦被终止可谓功亏一篑，以后还得从头再来。</p>
+</li>
+<li><p>进程回退法。让一个或多个死锁进程回退到足以避免死锁的地步。这就要求系统要记录进程的历史信息，设置还原点。</p>
+</li>
+</ol>
+<p>如何决定“对谁动手”</p>
+<ol>
+<li><p>进程优先级</p>
+</li>
+<li><p>已执行多长时间</p>
+</li>
+<li><p>还要多久能完成</p>
+</li>
+<li><p>进程已经使用了多少资源</p>
+</li>
+<li><p>进程是交互式的还是批处</p>
+</li>
+</ol>
+<p><img src="/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/image-20200530144825770.png" alt="image-20200530144825770"></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://amourlover.xyz">Amour&amp;R</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/">http://amourlover.xyz/2020/05/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%8C%E7%AB%A0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://amourlover.xyz/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2020/05/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%B8%89%E7%AB%A0/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">操作系统第三章</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"><span class="paginator-prev__text">IP基础知识</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进程的定义、组成、组织方式…"><span class="toc-number">1.</span> <span class="toc-text">
           进程的定义、组成、组织方式…</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的定义"><span class="toc-number">1.1.</span> <span class="toc-text">
           进程的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的组成"><span class="toc-number">1.2.</span> <span class="toc-text">
           进程的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进程的组织"><span class="toc-number">1.3.</span> <span class="toc-text">
@@ -988,4 +1084,8 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></he
           破坏不剥夺条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#破坏请求和保持条件"><span class="toc-number">21.2.3.</span> <span class="toc-text">
           破坏请求和保持条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#破坏循坏等待条件"><span class="toc-number">21.2.4.</span> <span class="toc-text">
           破坏循坏等待条件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁的处理策略——避免死锁（银行家算法）"><span class="toc-number">21.3.</span> <span class="toc-text">
-          死锁的处理策略——避免死锁（银行家算法）</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/author.png" alt="avatar"></div><p class="sidebar-ov-author__text">Maintain self-discipline</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Amour&R</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.0.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.0.0"></script><script src="/js/stun-boot.js?v=2.0.0"></script><script src="/js/scroll.js?v=2.0.0"></script><script src="/js/header.js?v=2.0.0"></script><script src="/js/sidebar.js?v=2.0.0"></script></body></html>
+          死锁的处理策略——避免死锁（银行家算法）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#银行家算法"><span class="toc-number">21.3.1.</span> <span class="toc-text">
+          银行家算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁的处理策略——检测和解除"><span class="toc-number">21.4.</span> <span class="toc-text">
+          死锁的处理策略——检测和解除</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#死锁的检测"><span class="toc-number">21.4.1.</span> <span class="toc-text">
+          死锁的检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#死锁的解除"><span class="toc-number">21.4.2.</span> <span class="toc-text">
+          死锁的解除</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/author.png" alt="avatar"></div><p class="sidebar-ov-author__text">Maintain self-discipline</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">归档</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Amour&R</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.0.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.0.0"></script><script src="/js/stun-boot.js?v=2.0.0"></script><script src="/js/scroll.js?v=2.0.0"></script><script src="/js/header.js?v=2.0.0"></script><script src="/js/sidebar.js?v=2.0.0"></script></body></html>
