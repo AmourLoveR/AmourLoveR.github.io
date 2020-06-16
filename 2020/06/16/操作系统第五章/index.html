@@ -1,0 +1,545 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.0.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.0.0" type="image/png" sizes="32x32"><meta name="description" content="I&#x2F;O">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统第五章">
+<meta property="og:url" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/index.html">
+<meta property="og:site_name" content="Amour&amp;R&#39;blog">
+<meta property="og:description" content="I&#x2F;O">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616173318828.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616174841894.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616175017676.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616175057658.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/iofenlei.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616175437137.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616213632410.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616215422502.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616215728315.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616215751167.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616220034332.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616220810005.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616222022163.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616222800938.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616224100211.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616224816280.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616225738644.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616225911576.png">
+<meta property="og:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616230443295.png">
+<meta property="article:published_time" content="2020-06-16T09:29:20.000Z">
+<meta property="article:modified_time" content="2020-06-16T15:05:51.714Z">
+<meta property="article:author" content="Amour&amp;R">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616173318828.png"><meta name="keywords" content="Amour&amp;R, Amour&amp;R'blog"><meta name="description" content=""><title>操作系统第五章 | Amour&amp;R'blog</title><link ref="canonical" href="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.0.0"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: true,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-menu-item__text">友链</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="https://www.yhjansf.xyz/" target="_blank" rel="noopener"><span class="header-nav-submenu-item__icon"><i class="fas fa-male"></i></span><span class="header-nav-submenu-item__text">YHJ</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="https://blog.fallen-angle.com/" target="_blank" rel="noopener"><span class="header-nav-submenu-item__icon"><i class="fas fa-female"></i></span><span class="header-nav-submenu-item__text">WZL</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="https://blog.soloist.ink/" target="_blank" rel="noopener"><span class="header-nav-submenu-item__icon"><i class="fas fa-female"></i></span><span class="header-nav-submenu-item__text">LQY</span></a></div></div></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Amour&amp;R'blog</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">操作系统第五章</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-06-16</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-06-16</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body"><p>I/O</p>
+<a id="more"></a>
+
+
+        <h2 id="I-O设备的基本概念和分类">
+          <a href="#I-O设备的基本概念和分类" class="heading-link"><i class="fas fa-link"></i></a>I/O设备的基本概念和分类</h2>
+      <p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616173318828.png" alt="image-20200616173318828"></p>
+
+        <h3 id="什么是I-O设备">
+          <a href="#什么是I-O设备" class="heading-link"><i class="fas fa-link"></i></a>什么是I/O设备</h3>
+      <p>“I/O”就是“输入/输出”(Input/Output)<br>I/0设备就是可以将数据输入到计算机，或者可以接收计算机输出数据的外部设备，属于计算机中的硬件部件。</p>
+<p>UNIX系统将外部设备抽象为–种特殊的文件，用户可以使用与文件操作相同的方式对外部设备进行操作。<br>Write操作:向外部设备写出数据<br>Read操作:从外部设备读入数据</p>
+
+        <h3 id="I-O设备的分类">
+          <a href="#I-O设备的分类" class="heading-link"><i class="fas fa-link"></i></a>I/O设备的分类</h3>
+      
+        <h4 id="按使用特性">
+          <a href="#按使用特性" class="heading-link"><i class="fas fa-link"></i></a>按使用特性</h4>
+      <p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616174841894.png" alt="image-20200616174841894"></p>
+
+        <h4 id="按传输速率分类">
+          <a href="#按传输速率分类" class="heading-link"><i class="fas fa-link"></i></a>按传输速率分类</h4>
+      <p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616175017676.png" alt="image-20200616175017676"></p>
+
+        <h4 id="按信息交换的单位分类">
+          <a href="#按信息交换的单位分类" class="heading-link"><i class="fas fa-link"></i></a>按信息交换的单位分类</h4>
+      <p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616175057658.png" alt="image-20200616175057658"></p>
+<p>总结：</p>
+<p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/iofenlei.png" alt="image-20200616175057658"></p>
+
+        <h2 id="I-O控制器">
+          <a href="#I-O控制器" class="heading-link"><i class="fas fa-link"></i></a>I/O控制器</h2>
+      <img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616175437137.png" alt="image-20200616175437137" style="zoom:67%;">
+
+
+        <h3 id="机械部件">
+          <a href="#机械部件" class="heading-link"><i class="fas fa-link"></i></a>机械部件</h3>
+      <p>I/0设备的机械部件主要用来执行具体I/0操作。如我们看得见摸得着的鼠标/键盘的按钮;显示器的LED屏;移动硬盘的磁臂、磁盘盘面。<br>I/O设备的电子部件通常是一块插入主板扩充槽的印刷电路板。</p>
+
+        <h3 id="电子部件（I-O控制器）">
+          <a href="#电子部件（I-O控制器）" class="heading-link"><i class="fas fa-link"></i></a>电子部件（I/O控制器）</h3>
+      <p>CPU无法直接控制I/0设备的机械部件，因此I/O设 备还要有一一个电子部件作为CPU和/O设备机械部<br>件之间的“中介”，用于实现CPU对设备的控制。这个电子部件就是I/O控制器，又称设备控制器。CPU可控制I/O控制器，又.由I/O控制器来控制设备的机械部件。</p>
+<p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616213632410.png" alt="image-20200616213632410"></p>
+
+        <h3 id="I-O控制器-1">
+          <a href="#I-O控制器-1" class="heading-link"><i class="fas fa-link"></i></a>I/O控制器</h3>
+      <p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616215422502.png" alt="image-20200616215422502"></p>
+<p>值得注意的小细节:</p>
+<p>①一个I/O控制器可能会对应多个设备;</p>
+<p>②数据寄存器、控制寄存器、状态寄存器可能有多个(如:每个控制/状态寄存器对应一个具体的设备)，且这些寄存器都要有相应的地址，才能方便CPU操作。有的计算机会让这些寄存器占用内存地址的一部分，称为内存映像I/O;另一些计算机则采用I/0专用地址，即寄存器独立编址。</p>
+
+        <h3 id="内存映像I-O-vs-寄存器独立编址">
+          <a href="#内存映像I-O-vs-寄存器独立编址" class="heading-link"><i class="fas fa-link"></i></a>内存映像I/O vs 寄存器独立编址</h3>
+      <p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616215728315.png" alt="image-20200616215728315"></p>
+<p>总结：</p>
+<p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616215751167.png" alt="image-20200616215751167"></p>
+
+        <h2 id="I-O控制方式">
+          <a href="#I-O控制方式" class="heading-link"><i class="fas fa-link"></i></a>I/O控制方式</h2>
+      <img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616220034332.png" alt="image-20200616220034332" style="zoom:67%;">
+
+<p>需要注意的问题:</p>
+<ol>
+<li><p>完成一次读/写操作的流程;</p>
+</li>
+<li><p>CPU干预的频率;</p>
+</li>
+<li><p>数据传送的单位;</p>
+</li>
+<li><p>数据的流向; .</p>
+</li>
+<li><p>主要缺点和主要优点。</p>
+</li>
+</ol>
+
+        <h3 id="程序直接控制方式">
+          <a href="#程序直接控制方式" class="heading-link"><i class="fas fa-link"></i></a>程序直接控制方式</h3>
+      <p>Key word：轮询</p>
+<ol>
+<li><p>完成一次读/写操作的流程（以读操作为例）</p>
+</li>
+<li><p>CPU干预的频率</p>
+<ul>
+<li>很频繁，I/O操作开始之前、完成之后需要CPU介入，并且在等待I/0完成的过程中CPU需要不断地轮询检查。</li>
+</ul>
+</li>
+<li><p>数据传送的单位</p>
+<ul>
+<li>每次读/写一个字</li>
+</ul>
+</li>
+<li><p>数据的流向</p>
+<ul>
+<li><p>读操作(数据输入) : I/0设备→CPU≥内存:</p>
+<p>写操作(数据输出) :内存→CPU→I/O设备</p>
+<p>每个字的读/写都需要CPU的帮助</p>
+</li>
+</ul>
+</li>
+<li><p>主要缺点和主要优点</p>
+<ul>
+<li><p>优点:实现简单。在读/写指令之后，加上实现循环检查的一系列指令即可(因此才称为“程序直接控制方式”)</p>
+</li>
+<li><p>缺点: CPU和I/O设备只能串行工作，CPU需要一直轮询检查,长期处于“忙等”状态，CPU利用率低。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616220810005.png" alt="image-20200616220810005"></p>
+<img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616222022163.png" alt="image-20200616222022163" style="zoom:67%;">
+
+
+        <h3 id="中断驱动方式">
+          <a href="#中断驱动方式" class="heading-link"><i class="fas fa-link"></i></a>中断驱动方式</h3>
+      <p>引入中断机制。由于I/O设备速度很慢，因此在CPU发出读/写命令后，可将等待I/O的进程阻塞，先切换到别的进程执行。当I/0完成后，控制器会向CPU发出一个中断信号，CPU检测到中断信号后，会保存当前进程的运行环境信息，转去执行中断处理程序处理该中断。处理中断的过程中，CPU从I/O控制器读一个字的数据传送到CPU寄存器，再写入主存。接着，CPU恢复等待I/O的进程(或其他进程)的运行环境，然后继续执行。</p>
+<p>注意:</p>
+<p>①CPU会在每个指令周期的末尾检查中断;</p>
+<p>②中断处理过程中需要保存、恢复进程的运行环境, 这个过程是需要一定时间开销的。可见，如果中断发生的频率太高，也会降低系统性能。</p>
+<img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616222800938.png" alt="image-20200616222800938" style="zoom:67%;">
+
+<ol>
+<li><p>完成一次读/写操作的流程（Key word：中断）</p>
+</li>
+<li><p>CPU干预的频率</p>
+<ul>
+<li>很频繁，I/O操作开始之前、完成之后需要CPU介入，等待I/0完成的过程中CPU可以切换到别的进程执行。</li>
+</ul>
+</li>
+<li><p>数据传送的单位</p>
+<ul>
+<li>每次读/写一个字</li>
+</ul>
+</li>
+<li><p>数据的流向</p>
+<ul>
+<li><p>读操作(数据输入) : I/0设备→CPU≥内存:</p>
+<p>写操作(数据输出) :内存→CPU→I/O设备</p>
+</li>
+</ul>
+</li>
+<li><p>主要缺点和主要优点</p>
+<ul>
+<li><p>优点：与“程序直接控制方式”相比，在“中断驱动方式”中，I/0控制器会通过中断信号主动报告I/0已完成，CPU不再需要不停地轮询。CPU和I/O设备可并行工作，CPU利用率得到明显提升。</p>
+</li>
+<li><p>缺点：每个字在I/O设备与内存之间的传输，都需要经过CPU。而频繁的中断处理会消耗较多的CPU时间。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+        <h3 id="DMA方式">
+          <a href="#DMA方式" class="heading-link"><i class="fas fa-link"></i></a>DMA方式</h3>
+      <p>与“中断驱动方式”相比，DMA方式( Direct Memory Access，直接存储器存取。主要用于块设备的I/O控制)有这样几个改进:</p>
+<p>①数据的传送单位是“块”。不再是-一个字、一个字的传送;</p>
+<p>②数据的流向是从设备直接放入内存，或者从内存直接到设备。不再需要CPU作为“快递小哥”。</p>
+<p>③仅在传送-一个或多个数据块的开始和结束时，才需要CPU千预。</p>
+<img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616224100211.png" alt="image-20200616224100211" style="zoom:80%;">
+
+<ol>
+<li><p>完成一次读/写操作的流程；</p>
+</li>
+<li><p>CPU干预的频率</p>
+<ul>
+<li>仅在传送一个或多个数据块的开始和结束时，才需要CPU干预。</li>
+</ul>
+</li>
+<li><p>数据传送的单位</p>
+<ul>
+<li>每次读/写一个或多个块(注意:每次读写的只能是连续的多个块，且这些块读入内存后在内存中也必须是连续的)</li>
+</ul>
+</li>
+<li><p>数据的流向(不再需要经过CPU)</p>
+<ul>
+<li><p>读操作( 数据输入) : I/O设备&gt;内存</p>
+<p>写操作(数据输出) :内存&gt;I/0设备</p>
+</li>
+</ul>
+</li>
+<li><p>主要缺点和主要优点</p>
+<ul>
+<li><p>优点:数据传输以“块”为单位，CPU介入频率进一步降低。数据的传输不再需要先经过CPU再写入内存，数据传输效率进一步增加。CPU和I/O设 备的并行性得到提升。</p>
+</li>
+<li><p>缺点: CPU每发出一条I/O指令，只能读/写-一个或多个连续的数据块。如果要读/写多个离散存储的数据块，或者要将数据分别写到不同的内存区域时，CPU要分别发出多条I/O指令，进行多次中断处理才能完成。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>DMA控制器</p>
+<p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616224816280.png" alt="image-20200616224816280"></p>
+<p>DR (Data Register,数据寄存器) :暂存从设备到内存，或从内存到设备的数据。</p>
+<p>MAR ( Memory Address Register，, 内存地址寄存器) :在输入时，MAR表示数据应放到内存中的什什么位置;输出时MAR表示要输出的数据放在内存中的什么位置。</p>
+<p>DC (Data Counter，数据计数器) :表示剩余要读/写的字节数。</p>
+<p>CR (Command Register， 命令/状态寄存器) :用于存放CPU发来的I/O命令，或设备的状态信息。</p>
+
+        <h3 id="通信控制方式">
+          <a href="#通信控制方式" class="heading-link"><i class="fas fa-link"></i></a>通信控制方式</h3>
+      <p>通道：一种硬件，可以理解为是“弱鸡版的CPU”。通道可以识别并执行一系列通道指令。（与CPU相比，通道可以执行的指令很单一，并且通道程序是放在主机内存中的，也就是说通道与CPU共享内存）</p>
+<p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616225738644.png" alt="image-20200616225738644"></p>
+<ol>
+<li><p>完成一次读/写操作的流程；</p>
+</li>
+<li><p>CPU干预的频率</p>
+<ul>
+<li>极低，通道会根据CPU的指示执行相应的通道程序，只有完成一组数据块的读/写后才需要发出中断信号，请求CPU干预。</li>
+</ul>
+</li>
+<li><p>数据传送的单位</p>
+<ul>
+<li>每次读/写一组数据块</li>
+</ul>
+</li>
+<li><p>数据的流向(在通道的控制下进行)</p>
+<ul>
+<li><p>读操作( 数据输入) : I/O设备&gt;内存</p>
+<p>写操作(数据输出) :内存&gt;I/0设备</p>
+</li>
+</ul>
+</li>
+<li><p>主要缺点和主要优点</p>
+<ul>
+<li><p>优点：CPU、通道、I/O设备可并行工作，资源利用率很高。</p>
+</li>
+<li><p>缺点:：实现复杂，需要专门的通道硬件支持。</p>
+</li>
+</ul>
+</li>
+</ol>
+<img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616225911576.png" alt="image-20200616225911576" style="zoom:67%;">
+
+<p>总结：</p>
+<p><img src="/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/image-20200616230443295.png" alt="image-20200616230443295"></p>
+
+        <h2 id="I-O软件层次结构">
+          <a href="#I-O软件层次结构" class="heading-link"><i class="fas fa-link"></i></a>I/O软件层次结构</h2>
+      </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://amourlover.xyz">Amour&amp;R</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/">http://amourlover.xyz/2020/06/16/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E4%BA%94%E7%AB%A0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-reward reward"><div class="reward-button">请我喝杯卡布奇诺~</div><div class="reward-qrcode"><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="/images/icons/alipay.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="/images/icons/wechat.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2020/06/12/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%AC%E5%9B%9B%E7%AB%A0/"><span class="paginator-prev__text">操作系统第四章</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O设备的基本概念和分类"><span class="toc-number">1.</span> <span class="toc-text">
+          I&#x2F;O设备的基本概念和分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是I-O设备"><span class="toc-number">1.1.</span> <span class="toc-text">
+          什么是I&#x2F;O设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O设备的分类"><span class="toc-number">1.2.</span> <span class="toc-text">
+          I&#x2F;O设备的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#按使用特性"><span class="toc-number">1.2.1.</span> <span class="toc-text">
+          按使用特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#按传输速率分类"><span class="toc-number">1.2.2.</span> <span class="toc-text">
+          按传输速率分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#按信息交换的单位分类"><span class="toc-number">1.2.3.</span> <span class="toc-text">
+          按信息交换的单位分类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O控制器"><span class="toc-number">2.</span> <span class="toc-text">
+          I&#x2F;O控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#机械部件"><span class="toc-number">2.1.</span> <span class="toc-text">
+          机械部件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电子部件（I-O控制器）"><span class="toc-number">2.2.</span> <span class="toc-text">
+          电子部件（I&#x2F;O控制器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O控制器-1"><span class="toc-number">2.3.</span> <span class="toc-text">
+          I&#x2F;O控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存映像I-O-vs-寄存器独立编址"><span class="toc-number">2.4.</span> <span class="toc-text">
+          内存映像I&#x2F;O vs 寄存器独立编址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O控制方式"><span class="toc-number">3.</span> <span class="toc-text">
+          I&#x2F;O控制方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#程序直接控制方式"><span class="toc-number">3.1.</span> <span class="toc-text">
+          程序直接控制方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中断驱动方式"><span class="toc-number">3.2.</span> <span class="toc-text">
+          中断驱动方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DMA方式"><span class="toc-number">3.3.</span> <span class="toc-text">
+          DMA方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通信控制方式"><span class="toc-number">3.4.</span> <span class="toc-text">
+          通信控制方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O软件层次结构"><span class="toc-number">4.</span> <span class="toc-text">
+          I&#x2F;O软件层次结构</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/author.png" alt="avatar"></div><p class="sidebar-ov-author__text">Maintain self-discipline</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://liuyib.github.io/hexo-theme-stun/zh-CN/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://twitter.com/" target="_blank" rel="noopener" data-popover="Twitter" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-twitter"></i></span></a><a class="sidebar-ov-social-item" href="https://wx.qq.com/" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-weixin"></i></span></a><a class="sidebar-ov-social-item" href="616784649" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">10</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">2</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Amour&R</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.0.0</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.xml';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);</script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script src="/js/utils.js?v=2.0.0"></script><script src="/js/stun-boot.js?v=2.0.0"></script><script src="/js/scroll.js?v=2.0.0"></script><script src="/js/header.js?v=2.0.0"></script><script src="/js/sidebar.js?v=2.0.0"></script></body></html>
