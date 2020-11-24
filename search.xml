@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>IP基础知识</title>
-    <url>/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<p><span class="exturl"><a class="exturl__link" href="https://mp.weixin.qq.com/s/qydIO7NDfFTYs4-ZZlfgRg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/qydIO7NDfFTYs4-ZZlfgRg</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-<p>这是我在微信公众号上看到的一篇文章。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hexo-常用命令</title>
-    <url>/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p><strong>（1）<code>$ hexo g</code>或<code>$ hexo generate</code></strong><br> 该命令执行后在<code>hexo</code>站点根目录下生成<code>public</code>文件夹</p>
-<p><strong>（2）<code>$ hexo clean</code></strong><br> 把（1）中的<code>public</code>文件夹删除</p>
-<p><strong>（3）<code>$ hexo s</code>或<code>$ hexo server</code></strong><br> 启动服务预览</p>
-<p><strong>（4）<code>$ hexo d</code>或<code>$ hexo deploy</code></strong><br> 部署站点，在本地生成<code>.deploy_git</code>文件夹，并将编译后的文件上传至 GitHub。</p>
-<p><strong>（5）<code>$ hexo new [layout]</code></strong><br> 例如：<code>$ hexo new photo “my-first-blog”</code><br> 上述指令执行时，Hexo 会尝试在 scaffolds 中寻找photo.md布局，若找到，则根据该布局新建文章；若未找到或指令中未指定该参数，则使用post.md新建文章。新建文章的名称在_config.yml中配置。</p>
-<p><strong>（6）删除文章</strong><br> 只需在本地把<code>source/_posts</code>文件夹下的文章源文件删除后，执行以下命令重新部署即可。</p>
-<figure class="highlight cpp"><div class="table-container"><table><tr><td class="code"><pre><span class="line">$ hexo clean <span class="comment">// 一定要先 clean，防止灵异事件发生</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></div></figure>
-
-<p>作者：四喜汤圆<br>链接：<span class="exturl"><a class="exturl__link" href="https://www.jianshu.com/p/7ba00af8da13" target="_blank" rel="noopener">https://www.jianshu.com/p/7ba00af8da13</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>来源：简书</p>
-]]></content>
-  </entry>
+<search> 
+  
+  
+    
+    <entry>
+      <title>&#39;v-slot&#39; directive doesn&#39;t support any modifier</title>
+      <link href="/2020/11/24/UserAdmin-vue%E4%B8%ADv-slot%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2020/11/24/UserAdmin-vue%E4%B8%ADv-slot%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>UserAdmin.vue中v-slot作用域插槽问题。在Vuetify中的<v-data-table>使用中遇到了一个bug，但是不会对项目的运行有影响</v-data-table></p><a id="more"></a><p>链接：<span class="exturl"><a class="exturl__link" href="https://v2.vuetifyjs.com/zh-Hans/components/data-tables/" target="_blank" rel="noopener">数据表组件—Vuetify.js</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;template v-slot:item.actions&#x3D;&quot;&#123; item &#125;&quot;&gt;</span><br><span class="line">&lt;v-icon</span><br><span class="line">        small</span><br><span class="line">        class&#x3D;&quot;mr-2&quot;</span><br><span class="line">        @click&#x3D;&quot;editItem(item)&quot;</span><br><span class="line">        &gt;</span><br><span class="line">    mdi-pencil</span><br><span class="line">    &lt;&#x2F;v-icon&gt;</span><br><span class="line">&lt;v-icon</span><br><span class="line">        small</span><br><span class="line">        @click&#x3D;&quot;deleteItem(item)&quot;</span><br><span class="line">        &gt;</span><br><span class="line">    mdi-delete</span><br><span class="line">    &lt;&#x2F;v-icon&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></div></figure><p>在<code>v-slot:item.actions=&quot;{ item }&quot;</code>上提示’v-slot’ directive doesn’t support any modifier错误</p><p>将<code>v-slot:item.actions=&quot;{ item }&quot;</code>改成<code>v-slot:[`item.actions`]=&quot;{ item }]&quot;</code>错误就消失了。</p><p>为什么会这样，我暂时还没搞懂。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> v-slot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IP基础知识</title>
+      <link href="/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+      <url>/2020/05/11/IP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+      
+        <content type="html"><![CDATA[<p><span class="exturl"><a class="exturl__link" href="https://mp.weixin.qq.com/s/qydIO7NDfFTYs4-ZZlfgRg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/qydIO7NDfFTYs4-ZZlfgRg</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p><p>这是我在微信公众号上看到的一篇文章。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> ip </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo-常用命令</title>
+      <link href="/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <url>/2020/05/06/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<p><strong>（1）<code>$ hexo g</code>或<code>$ hexo generate</code></strong><br> 该命令执行后在<code>hexo</code>站点根目录下生成<code>public</code>文件夹</p><p><strong>（2）<code>$ hexo clean</code></strong><br> 把（1）中的<code>public</code>文件夹删除</p><p><strong>（3）<code>$ hexo s</code>或<code>$ hexo server</code></strong><br> 启动服务预览</p><p><strong>（4）<code>$ hexo d</code>或<code>$ hexo deploy</code></strong><br> 部署站点，在本地生成<code>.deploy_git</code>文件夹，并将编译后的文件上传至 GitHub。</p><p><strong>（5）<code>$ hexo new [layout]</code></strong><br> 例如：<code>$ hexo new photo “my-first-blog”</code><br> 上述指令执行时，Hexo 会尝试在 scaffolds 中寻找photo.md布局，若找到，则根据该布局新建文章；若未找到或指令中未指定该参数，则使用post.md新建文章。新建文章的名称在_config.yml中配置。</p><p><strong>（6）删除文章</strong><br> 只需在本地把<code>source/_posts</code>文件夹下的文章源文件删除后，执行以下命令重新部署即可。</p><figure class="highlight cpp"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment">// 一定要先 clean，防止灵异事件发生</span></span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></div></figure><p>作者：四喜汤圆<br>链接：<span class="exturl"><a class="exturl__link" href="https://www.jianshu.com/p/7ba00af8da13" target="_blank" rel="noopener">https://www.jianshu.com/p/7ba00af8da13</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>来源：简书</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
 </search>
